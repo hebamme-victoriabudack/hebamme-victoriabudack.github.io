@@ -1,53 +1,92 @@
 ---
 # Banner
 banner:
-  title: "The Ultimate Starter Template You Need To Start Your Astro Project"
-  content: "Astroplate is a free starter template built with Astro and TailwindCSS, providing everything you need to jumpstart your Astro project and save valuable time."
-  image: "/images/banner.png"
+  title: "Hebamme in Dresden"
+  content: "Wer sagt, es gibt keine Wunder auf dieser Erde, hat noch nie die Geburt eines Kindes erlebt. Wer sagt, Reichtum ist alles, hat noch nie ein Kind lächeln gesehen. Wer sagt, diese Welt sei nicht mehr zu retten, hat vergessen, dass Kinder Hoffnung bedeuten."
+  image: "/public/images/baby_und_teddy.webp"
+  alt: "Baby mit Teddy"
   button:
-    enable: true
+    enable: false
     label: "Get Started For Free"
     link: "https://github.com/zeon-studio/astroplate"
 
-# Features
-features:
-  - title: "What's Included in Astroplate"
-    image: "/images/service-1.png"
-    content: "Astroplate is a comprehensive starter template that includes everything you need to get started with your Astro project. What's Included in Astroplate"
+# Leistungen
+services:
+  - title: "Schwangerenvorsorge"
+    image: "/images/vorsorge.webp"
+    content: ""
     bulletpoints:
-      - "10+ Pre-build pages"
-      - "95+ Google Pagespeed Score"
-      - "Build with Astro and TailwindCSS for easy and customizable styling"
-      - "Fully responsive on all devices"
-      - "SEO-optimized for better search engine rankings"
-      - "**Open-source and free** for personal and commercial use"
-    button:
-      enable: false
-      label: "Get Started Now"
-      link: "#"
-
-  - title: "Discover the Key Features Of Astro"
-    image: "/images/service-2.png"
-    content: "Astro is an all-in-one web framework for building fast, content-focused websites. It offers a range of exciting features for developers and website creators. Some of the key features are:"
-    bulletpoints:
-      - "Zero JS, by default: No JavaScript runtime overhead to slow you down."
-      - "Customizable: Tailwind, MDX, and 100+ other integrations to choose from."
-      - "UI-agnostic: Supports React, Preact, Svelte, Vue, Solid, Lit and more."
+      - Hilfe bei Schwangerschaftsbeschwerden
+      - Schwangerenberatung
+      - Vorsorgeuntersuchung
     button:
       enable: true
-      label: "Get Started Now"
+      label: "Hier erfährst du mehr"
+      link: "#"
+
+  - title: 'Wochenbettbetreuung ("Nachsorge")'
+    image: "/images/wochenbett.webp"
+    content: ""
+    bulletpoints:
+      - Wohlergehen des Neugeborenen
+      - Beobachtung der Rückbildungsvorgänge
+      - Stillberatung
+      - Beikostberatung
+    button:
+      enable: true
+      label: "Hier erfährst du mehr"
       link: "https://github.com/zeon-studio/astroplate"
 
-  - title: "The Top Reasons to Choose Astro for Your Next Project"
-    image: "/images/service-3.png"
-    content: "With Astro, you can build modern and content-focused websites without sacrificing performance or ease of use."
+# Zusatzangebote
+offers:
+  - title: "Schwangerenvorsorge"
+    image: "/images/vorsorge.webp"
+    content: ""
     bulletpoints:
-      - "Instantly load static sites for better user experience and SEO."
-      - "Intuitive syntax and support for popular frameworks make learning and using Astro a breeze."
-      - "Use any front-end library or framework, or build custom components, for any project size."
-      - "Built on cutting-edge technology to keep your projects up-to-date with the latest web standards."
+      - Hilfe bei Schwangerschaftsbeschwerden
+      - Schwangerenberatung
+      - Vorsorgeuntersuchung
     button:
-      enable: false
-      label: ""
-      link: ""
+      enable: true
+      label: "Hier erfährst du mehr"
+      link: "#"
+
+  - title: 'Wochenbettbetreuung ("Nachsorge")'
+    image: "/images/wochenbett.webp"
+    content: ""
+    bulletpoints:
+      - Wohlergehen des Neugeborenen
+      - Beobachtung der Rückbildungsvorgänge
+      - Stillberatung
+      - Beikostberatung
+    button:
+      enable: true
+      label: "Hier erfährst du mehr"
+      link: "https://github.com/zeon-studio/astroplate"
 ---
+
+
+**Liebe werdende Eltern,**
+
+die Schwangerschaft und die Geburt eines Kindes sind ein großes Abenteuer und ich würde mich freuen dich während dieser unvergesslichen Zeit zu begleiten. Seit 2014 bin ich als freiberufliche Hebamme tätig und es bereitet mir große Freude einen Beruf erlernt zu haben, in dem neues Leben beginnt und das Glück zu haben, am Anfang dieses Lebens zu stehen. Sowohl für die Zeit der Schwangerschaft (zum Beispiel für die Schwangerenvorsorge), im Wochenbett (umgangssprachlich auch als „Nachsorge“ bezeichnet) und darüber hinaus, bin ich für dich da. Über meine Leistungen, Zusatzangebote und über mich kannst du hier mehr erfahren. Bei Interesse und Fragen stehe ich dir gerne zur Verfügung (Kontakt, [0152/02090641](tel:+4915202090641)).
+
+Seit April 2025 bin ich im Hebammenhandwerk Dresden (Waldschlösschenstraße 22, 01099 Dresden) tätig. Zu unseren Leistungen (Schwangerenbegleitung, Wochenbett etc.) und Kursangeboten (Gebursvorbereitung, Rückbildung und Babymassage) findet ihr mehr auf unserer Webseite: https://hebammenhandwerk-dresden.de
+
+Im Falle von Urlaub oder Krankheit arbeite ich mit meinen Kolleginnen Annalisa Gallwas und Anne-Kathrin Schenker zusammen.
+
+<!-- 
+### Betreuungsbereich 
+
+Ich betreue Familien in Dresden, Heidenau und Umgebung, vor allem in: 
+- Großzschachwitz
+- Kleinzschachwitz
+- Laubegast
+- Leuben
+- Zschieren
+- Meusslitz
+- Lockwitz
+- Pillnitz
+- Nickern
+- Luga
+- Niedersedlitz
+- Heidenau. -->

@@ -6,25 +6,39 @@ import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
 import Testimonial from "@/partials/Testimonial.astro";
 import { FaCheck } from "react-icons/fa";
+import type { CollectionEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 
-const homepage = await getListPage("homepage", "-index");
+const homepage = (await getEntry(
+  "homepage",
+  "-index",
+)) as CollectionEntry<"homepage">;
+
+const { Content } = await render(homepage);
+
 const call_to_action = await getListPage("ctaSection", "call-to-action");
 const testimonial = await getListPage("testimonialSection", "testimonial");
 
-const { banner, features } = homepage.data;
+const { banner, services, offers } = homepage.data;
 ---
 
 <Base>
   <!-- Banner -->
-  <section class="section pt-14">
+  <section
+    class="section pt-14 bg-fuchsia-400/20 bg-blend-overlay bg-cover bg-center bg-fixed"
+    style={`background-image: ${banner.image ? `url('${banner.image}')` : "none"}`}
+  >
     <div class="container">
       <div class="row justify-center">
-        <div class="lg:col-7 md:col-9 mb-8 text-center">
+        <div class="lg:col-7 md:col-9 mb-8 text-center min-h-128">
           <h1
             set:html={markdownify(banner.title)}
-            class="mb-4 text-h3 lg:text-h1"
+            class="mb-4 text-h3 lg:text-h1 text-white text-shadow-lg/30"
           />
-          <p set:html={markdownify(banner.content)} class="mb-8" />
+          <p
+            set:html={markdownify(banner.content)}
+            class="mb-8 text-h6 text-white text-shadow-lg/30 italic"
+          />
           {
             banner.button.enable && (
               <a
@@ -47,7 +61,7 @@ const { banner, features } = homepage.data;
                 src={banner.image}
                 height={380}
                 width={1200}
-                alt="banner"
+                alt={banner.alt}
                 format="webp"
               />
             </div>
@@ -58,47 +72,135 @@ const { banner, features } = homepage.data;
   </section>
   <!-- /Banner -->
 
-  <!-- Features -->
-  {
-    features.map((feature, index: number) => (
-      <section class={`section-sm ${index % 2 === 0 && "bg-gradient"}`}>
-        <div class="container">
-          <div class="row items-center justify-between">
-            <div
-              class={`mb:md-0 mb-6 md:col-5 ${index % 2 !== 0 && "md:order-2"}`}
-            >
-              <ImageMod
-                src={feature.image}
-                height={480}
-                width={520}
-                alt={feature.title}
-                format="webp"
-              />
-            </div>
-            <div class={`md:col-7 lg:col-6 ${index % 2 !== 0 && "md:order-1"}`}>
-              <h2 set:html={markdownify(feature.title)} class="mb-4" />
-              <p set:html={markdownify(feature.content)} class="mb-8 text-lg" />
-              <ul>
-                {feature.bulletpoints.map((bullet: string) => (
-                  <li class="relative mb-4 pl-6">
-                    <FaCheck className={"absolute left-0 top-1.5"} />
-                    <span set:html={markdownify(bullet)} />
-                  </li>
-                ))}
-              </ul>
-              {feature.button.enable && (
-                <a class="btn btn-primary mt-5" href={feature.button.link}>
-                  {feature.button.label}
-                </a>
-              )}
+  <!-- Content -->
+  <div class="container pt-8">
+    <div class="row justify-center">
+      <div class="md:col-10 lg:col-10">
+        <div class="content">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Content -->
+
+  <!-- About Me -->
+  <Testimonial testimonial={testimonial} />
+  <!-- /About Me -->
+
+  <!-- Leistungen -->
+  <div class="container mt-8">
+    <div class="row my-8">
+      <div class="col-12">
+        <div class="relative flex items-center">
+          <div class="grow border-t"></div>
+          <h2 class="mx-6 whitespace-nowrap">Leistungen</h2>
+          <div class="grow border-t"></div>
+        </div>
+      </div>
+    </div>
+    {
+      services.map((feature, index: number) => (
+        <section class={`section-sm ${index % 2 === 0 && "bg-gradient"}`}>
+          <div class="container">
+            <div class="row items-center justify-between">
+              <div
+                class={`mb:md-0 mb-6 md:col-5 ${index % 2 !== 0 && "md:order-2"}`}
+              >
+                <ImageMod
+                  src={feature.image}
+                  height={480}
+                  width={520}
+                  alt={feature.title}
+                  format="webp"
+                />
+              </div>
+              <div
+                class={`md:col-7 lg:col-6 ${index % 2 !== 0 && "md:order-1"}`}
+              >
+                <h3 set:html={markdownify(feature.title)} class="mb-4" />
+                <p
+                  set:html={markdownify(feature.content)}
+                  class="mb-8 text-lg"
+                />
+                <ul>
+                  {feature.bulletpoints.map((bullet: string) => (
+                    <li class="relative mb-4 pl-6">
+                      <FaCheck className={"absolute left-0 top-1.5"} />
+                      <span set:html={markdownify(bullet)} />
+                    </li>
+                  ))}
+                </ul>
+                {feature.button.enable && (
+                  <a class="btn btn-primary mt-5" href={feature.button.link}>
+                    {feature.button.label}
+                  </a>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    ))
-  }
-  <!-- /Features -->
+        </section>
+      ))
+    }
+    <!-- /Leistungen -->
 
-  <Testimonial testimonial={testimonial} />
-  <CallToAction call_to_action={call_to_action} />
+    <!-- Zusatzangebote -->
+    <div class="container mt-8">
+      <div class="row my-8">
+        <div class="col-12">
+          <div class="relative flex items-center">
+            <div class="grow border-t"></div>
+            <h2 class="mx-6 whitespace-nowrap">Zusatzangebote</h2>
+            <div class="grow border-t"></div>
+          </div>
+        </div>
+      </div>
+      {
+        offers.map((feature, index: number) => (
+          <section class={`section-sm ${index % 2 === 0 && "bg-gradient"}`}>
+            <div class="container">
+              <div class="row items-center justify-between">
+                <div
+                  class={`mb:md-0 mb-6 md:col-5 ${index % 2 !== 0 && "md:order-2"}`}
+                >
+                  <ImageMod
+                    src={feature.image}
+                    height={480}
+                    width={520}
+                    alt={feature.title}
+                    format="webp"
+                  />
+                </div>
+                <div
+                  class={`md:col-7 lg:col-6 ${index % 2 !== 0 && "md:order-1"}`}
+                >
+                  <h3 set:html={markdownify(feature.title)} class="mb-4" />
+                  <p
+                    set:html={markdownify(feature.content)}
+                    class="mb-8 text-lg"
+                  />
+                  <ul>
+                    {feature.bulletpoints.map((bullet: string) => (
+                      <li class="relative mb-4 pl-6">
+                        <FaCheck className={"absolute left-0 top-1.5"} />
+                        <span set:html={markdownify(bullet)} />
+                      </li>
+                    ))}
+                  </ul>
+                  {feature.button.enable && (
+                    <a class="btn btn-primary mt-5" href={feature.button.link}>
+                      {feature.button.label}
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
+        ))
+      }
+      <!-- /Zusatzangebote -->
+
+      <!-- <CallToAction call_to_action={call_to_action} /> -->
+    </div>
+  </div>
 </Base>

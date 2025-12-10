@@ -78,13 +78,27 @@ const homepageCollection = defineCollection({
       title: z.string(),
       content: z.string(),
       image: z.string(),
+      alt: z.string(),
       button: z.object({
         enable: z.boolean(),
         label: z.string(),
         link: z.string(),
       }),
     }),
-    features: z.array(
+    services: z.array(
+      z.object({
+        title: z.string(),
+        image: z.string(),
+        content: z.string(),
+        bulletpoints: z.array(z.string()),
+        button: z.object({
+          enable: z.boolean(),
+          label: z.string(),
+          link: z.string(),
+        }),
+      }),
+    ),
+    offers: z.array(
       z.object({
         title: z.string(),
         image: z.string(),
