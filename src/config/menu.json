@@ -46,12 +46,16 @@
   ],
   "footer": [
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "Startseite",
+      "url": "/"
     },
     {
-      "name": "Privacy Policy",
-      "url": "/privacy-policy"
+      "name": "Datenschutzerklärung",
+      "url": "/datenschutz"
+    },
+    {
+      "name": "Impressum",
+      "url": "/impressum"
     }
   ]
 }

@@ -3,7 +3,7 @@ import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import { getListPage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
-import CallToAction from "@/partials/CallToAction.astro";
+// import CallToAction from "@/partials/CallToAction.astro";
 import Testimonial from "@/partials/Testimonial.astro";
 import { FaCheck } from "react-icons/fa";
 import type { CollectionEntry } from "astro:content";
@@ -16,7 +16,7 @@ const homepage = (await getEntry(
 
 const { Content } = await render(homepage);
 
-const call_to_action = await getListPage("ctaSection", "call-to-action");
+// const call_to_action = await getListPage("ctaSection", "call-to-action");
 const testimonial = await getListPage("testimonialSection", "testimonial");
 
 const { banner, services, offers } = homepage.data;
