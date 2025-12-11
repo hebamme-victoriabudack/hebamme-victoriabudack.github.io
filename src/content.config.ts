@@ -80,11 +80,13 @@ const homepageCollection = defineCollection({
       content: z.string(),
       image: z.string(),
       alt: z.string(),
-      button: z.object({
-        enable: z.boolean(),
-        label: z.string(),
-        link: z.string(),
-      }),
+      buttons: z.array(
+        z.object({
+          label: z.string(),
+          icon: z.string(),
+          link: z.string(),
+        })
+      ),
     }),
     services: z.object({
       title: z.string(),
