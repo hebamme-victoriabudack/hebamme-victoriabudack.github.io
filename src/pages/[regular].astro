@@ -3,6 +3,7 @@ import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 import { render } from "astro:content";
+import ImageMod from "@/components/ImageMod.astro";
 
 // get static paths for all pages
 export async function getStaticPaths() {
@@ -30,16 +31,33 @@ const { Content } = await render(page);
   description={description}
   image={image}
 >
-  <PageHeader title={title} />
-  <section class="section-sm">
+  <!-- Banner -->
+  <section
+    class="section pt-14 bg-fuchsia-400/20 bg-blend-overlay bg-cover bg-center bg-fixed"
+    style={`background-image: ${image ? `url('${image}')` : "none"}`}
+  >
     <div class="container">
       <div class="row justify-center">
-        <div class="lg:col-10">
-          <div class="content">
-            <Content />
-          </div>
+        <div class="lg:col-9 md:col-10 mb-8 text-center min-h-128">
+          <h1
+            set:html={title}
+            class="mt-16 mb-8 text-h2 lg:text-h1 text-white text-shadow-lg/30"
+          />
         </div>
       </div>
     </div>
   </section>
+  <!-- /Banner -->
+
+  <!-- Content -->
+  <div class="container pt-8">
+    <div class="row justify-center">
+      <div class="md:col-10 lg:col-10">
+        <div class="content">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Content -->
 </Base>

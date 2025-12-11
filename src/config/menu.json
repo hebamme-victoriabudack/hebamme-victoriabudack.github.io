@@ -10,12 +10,12 @@
       "hasChildren": true,
       "children": [
         {
-          "name": "Contact",
-          "url": "/contact"
+          "name": "Schwangerenvorsorge",
+          "url": "/schwangerenvorsorge"
         },
         {
-          "name": "Blog",
-          "url": "/blog"
+          "name": "Wochenbettbetreuung",
+          "url": "/wochenbettbetreuung"
         }
       ]
     },
@@ -25,12 +25,24 @@
       "hasChildren": true,
       "children": [
         {
-          "name": "Contact",
-          "url": "/contact"
+          "name": "Tragetuchberatung",
+          "url": "/tragetuchberatung"
         },
         {
-          "name": "Blog",
-          "url": "/blog"
+          "name": "Stoffwindelberatung",
+          "url": "/stoffwindelberatung"
+        },
+        {
+          "name": "Akupunktur",
+          "url": "/akupunktur"
+        },
+        {
+          "name": "Beikostberatung",
+          "url": "/beikostberatung"
+        },
+        {
+          "name": "Kinesio-Taping",
+          "url": "/kinesio-taping"
         }
       ]
     },
