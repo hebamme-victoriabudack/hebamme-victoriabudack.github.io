@@ -1,19 +1,11 @@
 {
   "main": [
     {
-      "name": "Home",
+      "name": "Startseite",
       "url": "/"
     },
     {
-      "name": "About",
-      "url": "/about"
-    },
-    {
-      "name": "Elements",
-      "url": "/elements"
-    },
-    {
-      "name": "Pages",
+      "name": "Leistungen",
       "url": "",
       "hasChildren": true,
       "children": [
@@ -24,24 +16,27 @@
         {
           "name": "Blog",
           "url": "/blog"
-        },
-        {
-          "name": "Authors",
-          "url": "/authors"
-        },
-        {
-          "name": "Categories",
-          "url": "/categories"
-        },
-        {
-          "name": "Tags",
-          "url": "/tags"
-        },
-        {
-          "name": "404 Page",
-          "url": "/404"
         }
       ]
+    },
+    {
+      "name": "Zusatzangebote",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Contact",
+          "url": "/contact"
+        },
+        {
+          "name": "Blog",
+          "url": "/blog"
+        }
+      ]
+    },
+    {
+      "name": "Kontakt",
+      "url": "/kontakt"
     }
   ],
   "footer": [
