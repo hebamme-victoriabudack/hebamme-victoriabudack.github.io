@@ -89,18 +89,21 @@ const { banner, services, offers } = homepage.data;
   <!-- /About Me -->
 
   <!-- Leistungen -->
-  <div class="container mt-8" id="leistungen">
+  <div class="container mt-8" id={services.id}>
     <div class="row my-8">
-      <div class="col-12">
+      <div class="col-12 mb-4">
         <div class="relative flex items-center">
           <div class="grow border-t"></div>
-          <h2 class="mx-6 whitespace-nowrap">Leistungen</h2>
+          <h2 class="mx-6 whitespace-nowrap">{services.title}</h2>
           <div class="grow border-t"></div>
         </div>
       </div>
+      <div class="col-12">
+        <p set:html={markdownify(services.description)} class="text-lg" />
+      </div>
     </div>
     {
-      services.map((feature, index: number) => (
+      services.features.map((feature, index: number) => (
         <section class={`section-sm ${index % 2 === 0 && "bg-gradient"}`}>
           <div class="container">
             <div class="row items-center justify-between">
@@ -145,18 +148,21 @@ const { banner, services, offers } = homepage.data;
     <!-- /Leistungen -->
 
     <!-- Zusatzangebote -->
-    <div class="container mt-8" id="zusatzangebote">
+    <div class="container mt-8" id={offers.id}>
       <div class="row my-8">
-        <div class="col-12">
+        <div class="col-12 mb-4">
           <div class="relative flex items-center">
             <div class="grow border-t"></div>
-            <h2 class="mx-6 whitespace-nowrap">Zusatzangebote</h2>
+            <h2 class="mx-6 whitespace-nowrap">{offers.title}</h2>
             <div class="grow border-t"></div>
           </div>
         </div>
+        <div class="col-12">
+          <p set:html={markdownify(offers.description)} class="text-lg" />
+        </div>
       </div>
       {
-        offers.map((feature, index: number) => (
+        offers.features.map((feature, index: number) => (
           <section class={`section-sm ${index % 2 === 0 && "bg-gradient"}`}>
             <div class="container">
               <div class="row items-center justify-between">

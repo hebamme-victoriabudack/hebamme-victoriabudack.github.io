@@ -1,5 +1,6 @@
 import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
+import { features, title } from "process";
 
 const commonFields = {
   title: z.string(),
@@ -85,32 +86,42 @@ const homepageCollection = defineCollection({
         link: z.string(),
       }),
     }),
-    services: z.array(
-      z.object({
-        title: z.string(),
-        image: z.string(),
-        content: z.string(),
-        bulletpoints: z.array(z.string()),
-        button: z.object({
-          enable: z.boolean(),
-          label: z.string(),
-          link: z.string(),
+    services: z.object({
+      title: z.string(),
+      id: z.string(),
+      description: z.string(),
+      features: z.array(
+        z.object({
+          title: z.string(),
+          image: z.string(),
+          content: z.string(),
+          bulletpoints: z.array(z.string()),
+          button: z.object({
+            enable: z.boolean(),
+            label: z.string(),
+            link: z.string(),
+          }),
         }),
-      }),
-    ),
-    offers: z.array(
-      z.object({
-        title: z.string(),
-        image: z.string(),
-        content: z.string(),
-        bulletpoints: z.array(z.string()),
-        button: z.object({
-          enable: z.boolean(),
-          label: z.string(),
-          link: z.string(),
+      ),
+    }),
+    offers: z.object({
+      title: z.string(),
+      id: z.string(),
+      description: z.string(),
+      features: z.array(
+        z.object({
+          title: z.string(),
+          image: z.string(),
+          content: z.string(),
+          bulletpoints: z.array(z.string()),
+          button: z.object({
+            enable: z.boolean(),
+            label: z.string(),
+            link: z.string(),
+          }),
         }),
-      }),
-    ),
+      ),
+    })
   }),
 });
 
