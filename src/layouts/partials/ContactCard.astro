@@ -1,0 +1,43 @@
+---
+import DynamicIcon from "@/helpers/DynamicIcon";
+---
+
+<section class="pb-4">
+  <div>
+    <h2 class="text-h6">Kontakt</h2>
+    <p>Bei Interesse und Fragen stehe ich dir gerne zur Verfügung</p>
+  </div>
+  <div class="inline-flex space-x-4">
+    <div class="accordion">
+      <a
+        href="tel:+777777"
+        class="flex items-center px-4 py-1 rounded-xl transition-all duration-300 group"
+      >
+        <button class="btn-round btn-primary">
+          <DynamicIcon size={24} icon="FaMobileAlt" />
+        </button>
+        <div class="ml-4">
+          <p class="text-lg text-text-dark dark:text-darkmode-text-light">
+            0176 32676933
+          </p>
+        </div>
+      </a>
+    </div>
+
+    <div class="accordion">
+      <a
+        href="tel:+777777"
+        class="flex items-center px-4 py-1 rounded-xl transition-all duration-300 group"
+      >
+        <button class="btn-round btn-primary">
+          <DynamicIcon size={24} icon="FaEnvelope" />
+        </button>
+        <div class="ml-4">
+          <p class="text-lg text-text-dark dark:text-darkmode-text-light">
+            info@hebamme-victoriabudack.de
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

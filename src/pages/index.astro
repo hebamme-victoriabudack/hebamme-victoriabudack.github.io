@@ -27,7 +27,7 @@ const { banner, services, offers } = homepage.data;
   <!-- Banner -->
   <section
     class="section pt-14 bg-fuchsia-400/20 bg-blend-overlay bg-cover bg-center bg-fixed"
-    style={`background-image: ${banner.image ? `url('${banner.image}')` : "none"}`}
+    style={`background-image: ${`url('${banner.image}')`}`}
   >
     <div class="container">
       <div class="row justify-center">
@@ -44,10 +44,10 @@ const { banner, services, offers } = homepage.data;
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-6">
             {
               banner.buttons?.map((button) => (
-                <div class="flex-row col-3 md:col-2">
+                <div class="flex-row col-3 lg:col-2">
                   <a 
                     class="inline-flex items-center justify-center transition-all-300 border-white border-2 rounded-full w-20 h-20 bg-fuchsia-400/20 hover:bg-fuchsia-400/40 cursor-pointer"
-                    onclick={`document.getElementById('${button.link}').scrollIntoView({ behavior: 'smooth' });`}
+                    href={button.link}
                   >
                     <DynamicIcon color="white" size="30" icon={button.icon}/>
                   </a>

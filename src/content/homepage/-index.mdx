@@ -3,7 +3,7 @@
 banner:
   title: "Hebamme in Dresden"
   content: "*Wer sagt, es gibt keine Wunder auf dieser Erde, hat noch nie die Geburt eines Kindes erlebt. Wer sagt, Reichtum ist alles, hat noch nie ein Kind lächeln gesehen. Wer sagt, diese Welt sei nicht mehr zu retten, hat vergessen, dass Kinder Hoffnung bedeuten.* <br> <br> **Reinhardt Becker**"
-  image: "/public/images/baby_und_teddy.webp"
+  image: "/images/baby_und_teddy.webp"
   alt: "Baby mit Teddy"
   buttons:
     - label: "Über mich"
@@ -11,10 +11,10 @@ banner:
       link: "https://github.com/zeon-studio/astroplate"
     - label: "Leistungen"
       icon: "FaBriefcase"
-      link: "leistungen"
+      link: "#leistungen"
     - label: "Zusatzangebote"
       icon: "LuHeartHandshake"
-      link: "zusatzangebote"
+      link: "#zusatzangebote"
 
 # Leistungen
 services:
@@ -32,7 +32,7 @@ services:
       button:
         enable: true
         label: "Hier erfährst du mehr"
-        link: "#"
+        link: "/schwangerenvorsorge"
 
     - title: 'Wochenbettbetreuung ("Nachsorge")'
       image: "/images/wochenbett.webp"
@@ -45,7 +45,7 @@ services:
       button:
         enable: true
         label: "Hier erfährst du mehr"
-        link: "/beikostberarung"
+        link: "/wochenbettbetreuung"
 
 # Zusatzangebote
 offers:
@@ -63,7 +63,7 @@ offers:
       button:
         enable: true
         label: "Hier erfährst du mehr"
-        link: "/trageberatung"
+        link: "/tragetuchberatung"
 
     - title: 'Stoffwindelbertaung'
       image: "/images/stoffwindelberatung.webp"
@@ -75,7 +75,7 @@ offers:
       button:
         enable: true
         label: "Hier erfährst du mehr"
-        link: /stoffwindelberatung"
+        link: "/stoffwindelberatung"
 
     - title: 'Akupunktur'
       image: "/images/akupunktur.webp"
@@ -87,7 +87,7 @@ offers:
       button:
         enable: true
         label: "Hier erfährst du mehr"
-        link: /akupunktur"
+        link: "/akupunktur"
 
     - title: 'Beikostberatung'
       image: "/images/beikostberatung.webp"
@@ -99,7 +99,7 @@ offers:
       button:
         enable: true
         label: "Hier erfährst du mehr"
-        link: /beikostberatung"
+        link: "/beikostberatung"
 
     - title: 'Kinesio-Taping'
       image: "/images/kinesio-taping.webp"
@@ -111,15 +111,15 @@ offers:
       button:
         enable: true
         label: "Hier erfährst du mehr"
-        link: /kinesio-taping"
+        link: "/kinesio-taping"
 ---
-
+import DynamicIcon from "@/helpers/DynamicIcon";
+import ContactCard from "@/partials/ContactCard.astro";
 
 **Liebe werdende Eltern,**
 
 die Schwangerschaft und die Geburt eines Kindes sind ein großes Abenteuer und ich würde mich freuen dich während dieser unvergesslichen Zeit zu begleiten. Seit 2014 bin ich als freiberufliche Hebamme tätig und es bereitet mir große Freude einen Beruf erlernt zu haben, in dem neues Leben beginnt und das Glück zu haben, am Anfang dieses Lebens zu stehen. Sowohl für die Zeit der Schwangerschaft (zum Beispiel für die Schwangerenvorsorge), im Wochenbett (umgangssprachlich auch als „Nachsorge“ bezeichnet) und darüber hinaus, bin ich für dich da. Über meine [Leistungen](#leistungen), [Zusatzangebote](#zusatzangebote) und über mich kannst du hier mehr erfahren. 
 
-Bei Interesse und Fragen stehe ich dir gerne zur Verfügung (Kontakt, [0152/02090641](tel:+4915202090641)).
 
 
 <Accordion client:load title="Welche Kurse biete ich an?">
@@ -152,3 +152,5 @@ Ich betreue Familien in Dresden, Heidenau und Umgebung, vor allem in
 - Heidenau.
 
 </Accordion>
+
+<ContactCard />

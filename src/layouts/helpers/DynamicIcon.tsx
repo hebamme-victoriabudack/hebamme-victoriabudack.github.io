@@ -1,6 +1,6 @@
 import React, { type FC } from "react";
 import type { IconType } from "react-icons";
-import * as FaIcons from "react-icons/fa6";
+import * as FaIcons from "react-icons/fa";
 import * as LuIcons from "react-icons/lu";
 import * as ImIcons from "react-icons/im";
 

@@ -18,7 +18,14 @@ export default defineConfig({
   vite: { plugins: [tailwindcss()] },
   integrations: [
     react(),
-    sitemap(),
+    sitemap({
+      filter: (page) =>
+        page !== '/datenschutzl' &&
+        page !== '/impressum',
+      i18n: {
+        defaultLocale: 'de',
+      }
+    }),
     AutoImport({
       imports: [
         "@/shortcodes/Button",
