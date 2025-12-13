@@ -1,10 +1,10 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
+import PageBanner from "@/partials/PageBanner.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import type { CollectionEntry } from "astro:content";
 import { getEntry, render } from "astro:content";
-import DynamicIcon from "@/helpers/DynamicIcon";
 import { FaCheck } from "react-icons/fa";
 
 const homepage = (await getEntry(
@@ -19,46 +19,7 @@ const { banner, services, offers } = homepage.data;
 
 <Base>
   <!-- Banner -->
-  <section
-    class="section pt-14 bg-primary/20 bg-blend-overlay bg-cover bg-center bg-fixed"
-    style={`background-image: ${`url('${banner.image}')`}`}
-  >
-    <div class="container">
-      <div class="row justify-center">
-        <div class="lg:col-9 md:col-10 mb-8 text-center min-h-128">
-          <h1
-            set:html={markdownify(banner.title)}
-            class="mt-16 mb-8 text-h2 lg:text-h1 text-white text-shadow-lg/30"
-          />
-          <p
-            set:html={markdownify(banner.content)}
-            class="mb-32 text-h6 md:text-h5 text-white text-shadow-lg/30"
-          />
-
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-6">
-            {
-              banner.buttons?.map((button) => (
-                <div class="col-3 lg:col-2">
-                  <div class="hover:animate-pulse-strong">
-                    <a 
-                      class="inline-flex items-center justify-center transition-all-300 border-white border-2 rounded-full w-20 h-20 bg-primary/20 hover:bg-primary/40 cursor-pointer"
-                      href={button.link}
-                    >
-                      <DynamicIcon color="white" size="30" icon={button.icon}/>
-                    </a>
-                  </div>
-                  <p
-                    set:html={markdownify(button.label)}
-                    class="text-h6 md:text-h5 text-white text-shadow-lg/30 font-bold lg:font-semibold"
-                  />
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+   <PageBanner banner={banner} />
   <!-- /Banner -->
 
   <!-- Content -->

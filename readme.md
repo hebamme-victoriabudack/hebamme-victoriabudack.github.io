@@ -19,7 +19,7 @@ yarn run build
 ### ToDos
 
 - [ ] Astro component for banner image
-- [ ] Revise css classes for unified look
+- [x] Revise css classes for unified look
 - [x] Add images to testimonials
 - [x] Add section "Vita"
 - [ ] Add contact site
