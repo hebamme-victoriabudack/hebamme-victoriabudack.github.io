@@ -4,7 +4,7 @@ import Base from "@/layouts/Base.astro";
 import { getListPage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 // import CallToAction from "@/partials/CallToAction.astro";
-import Testimonial from "@/partials/Testimonial.astro";
+import ImageTestimonial from "@/partials/ImageTestimonial.astro";
 import type { CollectionEntry } from "astro:content";
 import { getEntry, render } from "astro:content";
 import DynamicIcon from "@/helpers/DynamicIcon";
@@ -74,13 +74,14 @@ const { banner, services, offers } = homepage.data;
         <div class="content">
           <Content />
         </div>
+        <ImageTestimonial testimonial={testimonial} />
       </div>
     </div>
   </div>
   <!-- /Content -->
 
   <!-- About Me -->
-  <Testimonial testimonial={testimonial} />
+  
   <!-- /About Me -->
 
   <!-- Leistungen -->
