@@ -2,18 +2,20 @@
 import DynamicIcon from "@/helpers/DynamicIcon";
 ---
 
-<section class="pb-4">
+<section class="py-4">
   <div>
-    <h2 class="text-h6">Kontakt</h2>
+    <h2 class="text-h6 font-semibold font-primary">Kontakt</h2>
     <p>Bei Interesse und Fragen stehe ich dir gerne zur Verfügung</p>
   </div>
   <div class="inline-flex space-x-4">
     <div class="accordion">
       <a
         href="tel:+777777"
-        class="flex items-center px-4 py-1 rounded-xl transition-all duration-300 group"
+        class="group-hover:animate-wiggle flex items-center no-underline px-4 py-1 rounded-xl transition-all duration-300 group"
       >
-        <button class="btn-round btn-primary">
+        <button
+          class="btn-round btn-primary btn-group-hover group-hover:animate-wiggle"
+        >
           <DynamicIcon size={24} icon="FaMobileAlt" />
         </button>
         <div class="ml-4">
@@ -27,9 +29,11 @@ import DynamicIcon from "@/helpers/DynamicIcon";
     <div class="accordion">
       <a
         href="tel:+777777"
-        class="flex items-center px-4 py-1 rounded-xl transition-all duration-300 group"
+        class="flex items-center no-underline px-4 py-1 rounded-xl transition-all duration-300 group"
       >
-        <button class="btn-round btn-primary">
+        <button
+          class="btn-round btn-primary btn-group-hover group-hover:animate-wiggle"
+        >
           <DynamicIcon size={24} icon="FaEnvelope" />
         </button>
         <div class="ml-4">

@@ -14,6 +14,7 @@
   --color-text: #444444;
   --color-text-dark: #040404;
   --color-text-light: #717171;
+  --color-text-accent: #721378;
 
   /* === Darkmode Colors === */
   --color-darkmode-primary: #ed6bff33;
@@ -24,6 +25,7 @@
   --color-darkmode-text: #B4AFB6;
   --color-darkmode-text-dark: #fff;
   --color-darkmode-text-light: #B4AFB6;
+  --color-darkmode-text-accent: #f6cfff;
 
   /* === Font Families === */
   --font-primary: Heebo, sans-serif;

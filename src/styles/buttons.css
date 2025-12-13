@@ -10,6 +10,10 @@
   @apply p-3 rounded-lg;
 }
 
+.btn-group-hover {
+  @apply group-hover:bg-primary dark:group-hover:bg-darkmode-primary;
+}
+
 .btn-primary {
   @apply bg-primary/50 hover:bg-primary dark:text-darkmode-text-light text-text-dark dark:bg-darkmode-primary/50 dark:hover:bg-darkmode-primary;
 }

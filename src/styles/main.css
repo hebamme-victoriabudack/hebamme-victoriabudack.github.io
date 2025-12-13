@@ -10,6 +10,11 @@
 @import "./safe.css";
 @import "./utilities.css";
 
+/* @layer_utilities { */
+@import "./animations.css";
+/* } */
+
+
 @layer base {
   @import "./base.css";
 }

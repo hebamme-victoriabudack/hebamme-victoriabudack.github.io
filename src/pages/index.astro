@@ -44,14 +44,15 @@ const { banner, services, offers } = homepage.data;
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-6">
             {
               banner.buttons?.map((button) => (
-                <div class="flex-row col-3 lg:col-2">
-                  <a 
-                    class="inline-flex items-center justify-center transition-all-300 border-white border-2 rounded-full w-20 h-20 bg-fuchsia-400/20 hover:bg-fuchsia-400/40 cursor-pointer"
-                    href={button.link}
-                  >
-                    <DynamicIcon color="white" size="30" icon={button.icon}/>
-                  </a>
-
+                <div class="col-3 lg:col-2">
+                  <div class="hover:animate-pulse-strong">
+                    <a 
+                      class="inline-flex items-center justify-center transition-all-300 border-white border-2 rounded-full w-20 h-20 bg-fuchsia-400/20 hover:bg-fuchsia-400/40 cursor-pointer"
+                      href={button.link}
+                    >
+                      <DynamicIcon color="white" size="30" icon={button.icon}/>
+                    </a>
+                  </div>
                   <p
                     set:html={markdownify(button.label)}
                     class="text-h6 md:text-h5 text-white text-shadow-lg/30 font-bold lg:font-semibold"
