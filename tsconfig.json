@@ -12,6 +12,7 @@
     "incremental": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
+      "@/content/*": ["./src/content/*"],
       "@/components/*": ["./src/layouts/components/*"],
       "@/shortcodes/*": ["./src/layouts/shortcodes/*"],
       "@/helpers/*": ["./src/layouts/helpers/*"],

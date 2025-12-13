@@ -1,16 +1,23 @@
 ---
-import { markdownify } from "@/lib/utils/textConverter";
 import ImageMod from "@/components/ImageMod.astro";
-const { testimonial } = Astro.props;
+// import type { ListFormat } from "typescript";
+
+import * as testimonials from '../../content/sections/testimonial.md';
+
+// interface Frontmatter {
+//   enable:boolean;
+//   testimonials: ListFormat;
+// }
+// const testimonial = await Astro.glob<Frontmatter>('../sections/testimonial.md');
 ---
 
 {
-  testimonial.data.enable && (
-    <div class="swiper testimonial-slider">
-      <div class="swiper-wrapper">
-        {testimonial.data.testimonials.map(
+  testimonials.frontmatter.enable && (
+    <div class="swiper testimonial-slider m-0 p-0">
+      <div class="swiper-wrapper m-0 p-0">
+        {testimonials.frontmatter.testimonials.map(
           (item: { avatar: string; name: string }) => (
-            <div class="swiper-slide">
+            <div class="swiper-slide my-0">
               <ImageMod
                 height={512}
                 width={512}
@@ -24,7 +31,7 @@ const { testimonial } = Astro.props;
         )}
       </div>
     </div>
-    <div class="testimonial-slider-pagination mt-9 flex items-center justify-center text-center" />
+    <div class="testimonial-slider-pagination mt-0 flex items-center justify-center text-center" />
   )
 }
 
