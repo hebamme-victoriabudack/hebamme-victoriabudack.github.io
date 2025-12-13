@@ -1,10 +1,7 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
-import { getListPage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
-// import CallToAction from "@/partials/CallToAction.astro";
-import ImageTestimonial from "@/partials/ImageTestimonial.astro";
 import type { CollectionEntry } from "astro:content";
 import { getEntry, render } from "astro:content";
 import DynamicIcon from "@/helpers/DynamicIcon";
@@ -17,16 +14,13 @@ const homepage = (await getEntry(
 
 const { Content } = await render(homepage);
 
-// const call_to_action = await getListPage("ctaSection", "call-to-action");
-const testimonial = await getListPage("testimonialSection", "testimonial");
-
 const { banner, services, offers } = homepage.data;
 ---
 
 <Base>
   <!-- Banner -->
   <section
-    class="section pt-14 bg-fuchsia-400/20 bg-blend-overlay bg-cover bg-center bg-fixed"
+    class="section pt-14 bg-primary/20 bg-blend-overlay bg-cover bg-center bg-fixed"
     style={`background-image: ${`url('${banner.image}')`}`}
   >
     <div class="container">
@@ -47,7 +41,7 @@ const { banner, services, offers } = homepage.data;
                 <div class="col-3 lg:col-2">
                   <div class="hover:animate-pulse-strong">
                     <a 
-                      class="inline-flex items-center justify-center transition-all-300 border-white border-2 rounded-full w-20 h-20 bg-fuchsia-400/20 hover:bg-fuchsia-400/40 cursor-pointer"
+                      class="inline-flex items-center justify-center transition-all-300 border-white border-2 rounded-full w-20 h-20 bg-primary/20 hover:bg-primary/40 cursor-pointer"
                       href={button.link}
                     >
                       <DynamicIcon color="white" size="30" icon={button.icon}/>
@@ -112,7 +106,7 @@ const { banner, services, offers } = homepage.data;
                     format="webp"
                   />
                   <!-- Overlay that appears on hover -->
-                  <div class="absolute inset-0 opacity-0 transition-all duration-300 hover:bg-fuchsia-400/40 hover:opacity-100 flex items-center justify-center">
+                  <div class="absolute inset-0 opacity-0 transition-all duration-300 hover:bg-primary/40 hover:opacity-100 flex items-center justify-center">
                       <span class="text-white text-lg font-semibold tracking-wide">Mehr erfahren</span>
                   </div>
                 </a>
@@ -180,7 +174,7 @@ const { banner, services, offers } = homepage.data;
                     format="webp"
                   />
                   <!-- Overlay that appears on hover -->
-                  <div class="absolute inset-0 opacity-0 transition-all duration-300 hover:bg-fuchsia-400/40 hover:opacity-100 flex items-center justify-center">
+                  <div class="absolute inset-0 opacity-0 transition-all duration-300 hover:bg-primary/40 hover:opacity-100 flex items-center justify-center">
                       <span class="text-white text-lg font-semibold tracking-wide">Mehr erfahren</span>
                   </div>
                 </a>

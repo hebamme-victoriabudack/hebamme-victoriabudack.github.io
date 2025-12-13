@@ -20,8 +20,8 @@ yarn run build
 
 - [ ] Astro component for banner image
 - [ ] Revise css classes for unified look
-- [ ] Add images to testimonials
-- [ ] Add section "Vita"
+- [x] Add images to testimonials
+- [x] Add section "Vita"
 - [ ] Add contact site
 - [ ] Fix scrolling when pressing back in the browser
 - [ ] Add proper SEO

@@ -6,7 +6,8 @@
 
 @theme {
   /* === Colors === */
-  --color-primary: #f6cfff;
+  --color-primary: #f4a8ff;
+  --color-secondary: #721378;
   --color-body: #fff;
   --color-border: #eaeaea;
   --color-light: #f6f6f6;
@@ -17,7 +18,8 @@
   --color-text-accent: #721378;
 
   /* === Darkmode Colors === */
-  --color-darkmode-primary: #ed6bff33;
+  --color-darkmode-primary: #372a39;
+  --color-darkmode-secondary: #f4a8ff;
   --color-darkmode-body: #1c1c1c;
   --color-darkmode-border: #3E3E3E;
   --color-darkmode-light: #222222;
@@ -25,7 +27,7 @@
   --color-darkmode-text: #B4AFB6;
   --color-darkmode-text-dark: #fff;
   --color-darkmode-text-light: #B4AFB6;
-  --color-darkmode-text-accent: #f6cfff;
+  --color-darkmode-text-accent: #f4a8ff;
 
   /* === Font Families === */
   --font-primary: Heebo, sans-serif;
