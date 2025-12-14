@@ -68,6 +68,14 @@ const contactCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/contact" }),
   schema: z.object({
     ...commonFields,
+    contact_details: z.array(
+      z.object({
+        label: z.string(),
+        info: z.string(),
+        icon: z.string(),
+        link: z.string().optional()
+      })
+    )
   }),
 });
 

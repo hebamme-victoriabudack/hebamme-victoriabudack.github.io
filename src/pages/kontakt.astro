@@ -6,7 +6,8 @@ import PageBanner from "@/partials/PageBanner.astro";
 
 const contactIndex = await getListPage("contact", "-index");
 const { contact_form_action }: { contact_form_action: string } = config.params;
-const { title, description, meta_title, image } = contactIndex.data;
+const { title, description, meta_title, image, contact_details } =
+  contactIndex.data;
 
 if (contactIndex.data.draft) {
   return Astro.redirect("/404");
@@ -15,6 +16,7 @@ if (contactIndex.data.draft) {
 const bannerData = {
   title: title,
   image: image,
+  contact_details: contact_details,
 };
 ---
 
