@@ -1,45 +1,53 @@
 ---
+import config from "@/config/config.json";
+import { getListPage } from "@/lib/contentParser.astro";
 import DynamicIcon from "@/helpers/DynamicIcon";
+
+const contactIndex = await getListPage("contact", "-index");
+const { contact_details } = contactIndex.data;
+
+if (contactIndex.data.draft) {
+  return Astro.redirect("/404");
+}
 ---
 
 <section class="py-4">
-  <div>
+  <div class="mb-6">
     <h2 class="text-h6 font-semibold font-primary">Kontakt</h2>
     <p>Bei Interesse und Fragen stehe ich dir gerne zur Verfügung</p>
   </div>
-  <div class="inline-flex space-x-4">
-    <div class="accordion">
-      <a
-        href="tel:+777777"
-        class="group-hover:animate-wiggle flex items-center no-underline px-4 py-1 rounded-xl transition-all duration-300 group"
-      >
-        <button
-          class="btn-round btn-primary btn-group-hover group-hover:animate-wiggle"
-        >
-          <DynamicIcon size={24} icon="FaMobileAlt" />
-        </button>
-        <div class="ml-4">
-          <p class="text-lg text-text dark:text-darkmode-text">0176 32676933</p>
+  <div>
+    {
+      contact_details && contact_details.length > 0 && (
+        <div class="flex flex-col md:flex-row md:items-start md:gap-8 lg:gap-12 gap-3 flex-wrap">
+          {contact_details
+            .filter((entry) => entry.label !== "Name")
+            .map((entry) => (
+              <div class="accordion">
+                <a
+                  href={entry.link}
+                  class="group-hover:animate-wiggle flex items-start no-underline px-4 py-3 rounded-xl transition-all duration-300 group w-full md:w-auto hover:bg-gray-50 dark:hover:bg-darkmode-card/50"
+                >
+                  <button class="btn-round btn-primary dark:bg-primary/50 dark:hover:bg-primary btn-group-hover group-hover:animate-wiggle text-white dark:text-white flex-shrink-0 w-12 h-12 min-w-[3rem]">
+                    <DynamicIcon
+                      size={24}
+                      icon={entry.icon}
+                      class="text-white"
+                    />
+                  </button>
+                  <div class="ml-4 flex flex-col justify-center pt-1">
+                    <p class="m-0 text-xs text-text dark:text-darkmode-text font-thin leading-tight">
+                      {entry.label}
+                    </p>
+                    <p class="m-0 text-h6 md:text-h6 text-text dark:text-darkmode-text mt-1 font-semibold leading-tight">
+                      {entry.info}
+                    </p>
+                  </div>
+                </a>
+              </div>
+            ))}
         </div>
-      </a>
-    </div>
-
-    <div class="accordion">
-      <a
-        href="tel:+777777"
-        class="flex items-center no-underline px-4 py-1 rounded-xl transition-all duration-300 group"
-      >
-        <button
-          class="btn-round btn-primary btn-group-hover group-hover:animate-wiggle"
-        >
-          <DynamicIcon size={24} icon="FaEnvelope" />
-        </button>
-        <div class="ml-4">
-          <p class="text-lg text-text dark:text-darkmode-text-light">
-            info@hebamme-victoriabudack.de
-          </p>
-        </div>
-      </a>
-    </div>
+      )
+    }
   </div>
 </section>
