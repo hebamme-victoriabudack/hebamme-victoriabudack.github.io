@@ -1,12 +1,9 @@
 ---
-import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import Services from "@/partials/Services.astro";
 import PageBanner from "@/partials/PageBanner.astro";
-import { markdownify } from "@/lib/utils/textConverter";
 import type { CollectionEntry } from "astro:content";
 import { getEntry, render } from "astro:content";
-import { FaCheck } from "react-icons/fa";
 
 const homepage = (await getEntry(
   "homepage",
