@@ -24,12 +24,13 @@ yarn run build
 - [x] Add section "Vita"
 - [x] Add contact site
 - [ ] Resolve existing errors on ```banner``` and ```size``` (Icon Property) that however still work
-- [ ] Add missing content
+- [ ] Add image position (and desired size) to ```banner```
+- [x] Add missing content
 - [ ] Fix scrolling when pressing back in the browser
 - [ ] Add proper SEO
 - [ ] Add sitemap and robots.txt
-- [ ] Setup GitHub actions
-- [ ] Deploy first version under https://hebamme-dresden.eu
+- [x] Setup GitHub actions
+- [x] Deploy first version under https://hebamme-dresden.eu
 - [ ] Link Google Search Console
 
 

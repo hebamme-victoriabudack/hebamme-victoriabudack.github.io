@@ -2,7 +2,7 @@
 import ImageMod from "@/components/ImageMod.astro";
 // import type { ListFormat } from "typescript";
 
-import * as testimonials from '../../content/sections/testimonial.md';
+import * as testimonials from '../../content/sections/image-testimonial.md';
 
 // interface Frontmatter {
 //   enable:boolean;
@@ -16,13 +16,13 @@ import * as testimonials from '../../content/sections/testimonial.md';
     <div class="swiper testimonial-slider">
       <div class="swiper-wrapper">
         {testimonials.frontmatter.testimonials.map(
-          (item: { avatar: string; name: string }) => (
+          (item: { image: string; alt: string }) => (
             <div class="swiper-slide">
               <ImageMod
                 height={384}
                 width={384}
-                src={item.avatar}
-                alt={item.name}
+                src={item.image}
+                alt={item.alt}
                 class="my-2 w-full aspect-square object-contain rounded-lg"
                 format="webp"
               />
