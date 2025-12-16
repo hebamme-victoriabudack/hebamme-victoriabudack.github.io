@@ -19,8 +19,8 @@ import * as testimonials from '../../content/sections/testimonial.md';
           (item: { avatar: string; name: string }) => (
             <div class="swiper-slide">
               <ImageMod
-                height={512}
-                width={512}
+                height={384}
+                width={384}
                 src={item.avatar}
                 alt={item.name}
                 class="my-2 w-full aspect-square object-contain rounded-lg"
@@ -61,7 +61,7 @@ import * as testimonials from '../../content/sections/testimonial.md';
           slidesPerView: 3,
         },
         992: {
-          slidesPerView: 3,
+          slidesPerView: 4,
         },
       },
     });
