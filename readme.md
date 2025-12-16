@@ -26,6 +26,7 @@ yarn run build
 - [ ] Resolve existing errors on ```banner``` and ```size``` (Icon Property) that however still work
 - [ ] Add image position (and desired size) to ```banner```
 - [x] Add missing content
+- [ ] Fix navbar
 - [ ] Fix scrolling when pressing back in the browser
 - [ ] Add proper SEO
 - [ ] Add sitemap and robots.txt
