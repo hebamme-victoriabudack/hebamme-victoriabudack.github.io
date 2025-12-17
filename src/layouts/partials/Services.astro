@@ -59,9 +59,8 @@ const { services } = Astro.props;
                 <ImageMod
                   src={feature.image}
                   alt={feature.title}
-                  width={1280}
-                  height={1280}
-                  class="w-full h-auto aspect-3/2 md:aspect-2/3 object-cover transition-transform duration-300"
+                  height={512}
+                  class="max-h-[512px] w-full h-auto aspect-3/2 md:aspect-2/3 object-cover transition-transform duration-300"
                   format="webp"
                 />
                 <div class="absolute inset-0 opacity-0 transition-all duration-300 hover:bg-primary/40 hover:opacity-100 flex items-center justify-center">
