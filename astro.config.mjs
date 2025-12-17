@@ -24,6 +24,9 @@ export default defineConfig({
         page !== '/impressum',
       i18n: {
         defaultLocale: 'de',
+        locales: {
+          de: 'de-DE', // The `defaultLocale` value must present in `locales` keys
+        }
       }
     }),
     AutoImport({
