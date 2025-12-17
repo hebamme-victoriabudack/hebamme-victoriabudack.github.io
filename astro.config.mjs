@@ -42,4 +42,21 @@ export default defineConfig({
     shikiConfig: { theme: "one-dark-pro", wrap: true },
     extendDefaultPlugins: true,
   },
+
+  build: {
+    assets: true, // Ensure assets are processed
+    // Example for long-lived caching of static assets
+    override: {
+      'static/.*': {
+        headers: {
+          'Cache-Control': 'public, max-age=31536000', // Cache for 1 year
+        },
+      },
+    },
+  },
+  cache: {
+    static: {
+      maxAge: '365 days', // Cache static assets for a year
+    },
+  },
 });
