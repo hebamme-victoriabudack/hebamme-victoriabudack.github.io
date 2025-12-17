@@ -31,6 +31,13 @@ interface Props {
 const { banner } = Astro.props;
 ---
 
+<link
+  rel="preload"
+  fetchpriority="high"
+  as="image"
+  type="image/webp"
+  href={banner.image}
+/>
 <section
   class="section pt-14 bg-primary/20 bg-blend-overlay bg-cover bg-center bg-fixed"
   style={`background-image: url('${banner.image}')`}
