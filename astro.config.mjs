@@ -44,7 +44,7 @@ export default defineConfig({
   },
 
   build: {
-    assets: true, // Ensure assets are processed
+    // assets: true, // Ensure assets are processed
     // Example for long-lived caching of static assets
     override: {
       'static/.*': {
