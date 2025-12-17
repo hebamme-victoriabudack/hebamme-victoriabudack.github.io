@@ -11,7 +11,7 @@ import config from "./src/config/config.json";
 
 // https://astro.build/config
 export default defineConfig({
-  site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
+  site: config.site.base_url ? config.site.base_url : "https://hebamme-dresden.eu",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   image: { service: sharp() },
@@ -20,7 +20,7 @@ export default defineConfig({
     react(),
     sitemap({
       filter: (page) =>
-        page !== '/datenschutzl' &&
+        page !== '/datenschutz' &&
         page !== '/impressum',
       i18n: {
         defaultLocale: 'de',
@@ -30,11 +30,6 @@ export default defineConfig({
       imports: [
         "@/shortcodes/Button",
         "@/shortcodes/Accordion",
-        "@/shortcodes/Notice",
-        "@/shortcodes/Video",
-        "@/shortcodes/Youtube",
-        "@/shortcodes/Tabs",
-        "@/shortcodes/Tab",
       ],
     }),
     mdx(),
