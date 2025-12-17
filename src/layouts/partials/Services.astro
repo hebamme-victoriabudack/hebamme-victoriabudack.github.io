@@ -47,7 +47,7 @@ const { services } = Astro.props;
     services.features.map((feature, index: number) => (
       <section class={`section-sm ${index % 2 === 0 && "bg-gradient"}`}>
         <div class="container">
-          <div class="row items-top 2xl:items-center justify-between">
+          <div class="row items-center 2xl:items-center justify-between">
             {/* Image */}
             <div
               class={`mb:md-0 mb-6 md:col-5 lg:col-6 ${index % 2 !== 0 && "md:order-2"}`}
@@ -58,10 +58,10 @@ const { services } = Astro.props;
               >
                 <ImageMod
                   src={feature.image}
-                  height={480}
-                  width={480}
                   alt={feature.title}
-                  class="w-full aspect-3/2 object-cover transition-transform duration-300"
+                  width={1280}
+                  height={1280}
+                  class="w-full h-auto aspect-3/2 md:aspect-2/3 object-cover transition-transform duration-300"
                   format="webp"
                 />
                 <div class="absolute inset-0 opacity-0 transition-all duration-300 hover:bg-primary/40 hover:opacity-100 flex items-center justify-center">
