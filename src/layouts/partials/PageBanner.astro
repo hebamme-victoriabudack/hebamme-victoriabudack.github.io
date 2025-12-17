@@ -80,6 +80,7 @@ const { banner } = Astro.props;
                       <div class="hover:animate-pulse-strong">
                         <a
                           class="inline-flex items-center justify-center transition-all-300 border-white border-2 rounded-full w-20 h-20 bg-primary/20 hover:bg-primary/40 cursor-pointer"
+                          aria-label={button.label}
                           href={button.link}
                         >
                           <DynamicIcon
