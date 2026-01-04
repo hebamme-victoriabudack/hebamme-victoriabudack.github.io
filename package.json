@@ -7,19 +7,18 @@
   "packageManager": "yarn@1.22.22",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"node scripts/themeGenerator.js --watch\" \"yarn generate-json && astro dev\"",
+    "dev": "concurrently \"node scripts/themeGenerator.js --watch\" \"astro dev\"",
     "build": "node scripts/themeGenerator.js && yarn generate-json && astro build",
     "preview": "astro preview",
     "check": "astro check",
     "format": "prettier -w ./src",
-    "generate-json": "node scripts/jsonGenerator.js",
     "remove-darkmode": "node scripts/removeDarkmode.js && yarn format"
   },
   "dependencies": {
     "@astrojs/check": "0.9.5",
     "@astrojs/mdx": "4.3.12",
     "@astrojs/react": "4.4.2",
-    "@astrojs/sitemap": "3.6.0",
+    "@astrojs/sitemap": "^3.6.0",
     "@digi4care/astro-google-tagmanager": "^1.6.0",
     "@justinribeiro/lite-youtube": "^1.9.0",
     "astro": "5.16.0",
