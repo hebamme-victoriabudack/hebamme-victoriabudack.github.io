@@ -20,8 +20,8 @@ export default defineConfig({
     react(),
     sitemap({
       filter: (page) =>
-        page !== '/datenschutz' &&
-        page !== '/impressum',
+        page !== 'datenschutz' &&
+        page !== 'impressum',
       i18n: {
         defaultLocale: 'de',
         locales: {
