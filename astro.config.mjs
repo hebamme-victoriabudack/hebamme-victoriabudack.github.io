@@ -20,8 +20,8 @@ export default defineConfig({
     react(),
     sitemap({
       filter: (page) =>
-        page !== 'datenschutz' &&
-        page !== 'impressum',
+        page !== 'https://hebamme-dresden.eu/datenschutz' &&
+        page !== 'https://hebamme-dresden.eu/impressum',
       i18n: {
         defaultLocale: 'de',
         locales: {
