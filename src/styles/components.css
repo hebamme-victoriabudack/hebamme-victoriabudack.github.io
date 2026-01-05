@@ -12,64 +12,6 @@
   @apply mx-auto xl:!max-w-[1320px] px-4;
 }
 
-/* social icons */
-.social-icons {
-  @apply space-x-4;
-}
-.social-icons li {
-  @apply inline-block;
-}
-.social-icons li a {
-  @apply flex h-9 w-9 items-center justify-center rounded-sm bg-primary text-center leading-9 text-white dark:bg-darkmode-primary dark:text-text-dark;
-}
-.social-icons li a svg {
-  @apply h-5 w-5;
-}
-
-/* notice */
-.notice {
-  @apply mb-6 rounded-lg border px-8 py-6;
-}
-
-.notice-head {
-  @apply flex items-center;
-}
-
-.notice-head svg {
-  @apply mr-3;
-}
-
-.notice-head p {
-  @apply font-secondary text-xl font-semibold text-text-dark dark:text-darkmode-text-light;
-}
-
-.notice-body {
-  @apply mt-3;
-}
-
-.notice-body p {
-  @apply my-0;
-}
-
-.notice.note {
-  @apply text-[#1B83E2];
-  @apply border-current;
-}
-
-.notice.tip {
-  @apply text-[#40D294];
-  @apply border-current;
-}
-
-.notice.info {
-  @apply text-[#E3A72C];
-  @apply border-current;
-}
-
-.notice.warning {
-  @apply text-[#DB2C23];
-  @apply border-current;
-}
 
 /* tab */
 .tab {
