@@ -27,12 +27,15 @@ yarn run build
 - [ ] Add image position (and desired size) to ```banner```
 - [x] Add missing content
 - [ ] Fix navbar
+    - not properly centered
+    - style overall not great
+    - nav group cannot be opened on touch devices
 - [ ] Fix scrolling when pressing back in the browser
-- [ ] Add proper SEO
-- [ ] Add sitemap and robots.txt
+- [x] Add proper SEO
+- [x] Add sitemap and robots.txt
 - [x] Setup GitHub actions
 - [x] Deploy first version under https://hebamme-dresden.eu
-- [ ] Link Google Search Console
+- [x] Link Google Search Console
 
 
 ## 📝 License
