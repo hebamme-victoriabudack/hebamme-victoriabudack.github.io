@@ -26,16 +26,22 @@ yarn run build
 - [ ] Resolve existing errors on ```banner``` and ```size``` (Icon Property) that however still work
 - [ ] Add image position (and desired size) to ```banner```
 - [x] Add missing content
-- [ ] Fix navbar
-    - not properly centered
-    - style overall not great
-    - nav group cannot be opened on touch devices
+- [ ] Fix navbar & Hero Banner
+    - [ ]not properly centered
+    - [ ] style overall not great
+    - [ ] nav group cannot be opened on touch devices
+    - [ ] Hero banner resizes when URL bar disappears
+    - [ ] Set src flag for image on different devices for faster loading (image are served with 1080p)
 - [ ] Fix scrolling when pressing back in the browser
+- [ ] Add nicer animations where applicable
 - [x] Add proper SEO
 - [x] Add sitemap and robots.txt
 - [x] Setup GitHub actions
 - [x] Deploy first version under https://hebamme-dresden.eu
 - [x] Link Google Search Console
+- [ ] Deploy on Cloudflare returns an error
+- [ ] Using Cloudflare leads to long loading times for images
+
 
 
 ## 📝 License
