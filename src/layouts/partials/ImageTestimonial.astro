@@ -1,23 +1,46 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
-// import type { ListFormat } from "typescript";
+import * as testimonials from "../../content/sections/image-testimonial.md";
 
-import * as testimonials from '../../content/sections/image-testimonial.md';
+import {
+  Swiper,
+  SwiperPagination,
+  SwiperSlide,
+  SwiperWrapper,
+} from "astro-swiper";
+import type { SwiperOptions } from "swiper/types";
 
-// interface Frontmatter {
-//   enable:boolean;
-//   testimonials: ListFormat;
-// }
-// const testimonial = await Astro.glob<Frontmatter>('../sections/testimonial.md');
+const swiperOptions: SwiperOptions = {
+  spaceBetween: 24,
+  loop: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".testimonial-slider-pagination",
+    type: "bullets",
+    clickable: true,
+    dynamicBullets: false,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 3,
+    },
+    992: {
+      slidesPerView: 4,
+    },
+  },
+};
 ---
 
 {
   testimonials.frontmatter.enable && (
-    <div class="swiper testimonial-slider">
-      <div class="swiper-wrapper">
+    <Swiper options={swiperOptions} class="testimonial-slider">
+      <SwiperWrapper class={"mb-12"}>
         {testimonials.frontmatter.testimonials.map(
           (item: { image: string; alt: string }) => (
-            <div class="swiper-slide">
+            <SwiperSlide>
               <ImageMod
                 height={384}
                 width={384}
@@ -26,44 +49,11 @@ import * as testimonials from '../../content/sections/image-testimonial.md';
                 class="my-2 w-full aspect-square object-contain rounded-lg"
                 format="webp"
               />
-            </div>
-          )
+            </SwiperSlide>
+          ),
         )}
-      </div>
-    </div>
-    <div class="testimonial-slider-pagination mt-4 flex items-center justify-center text-center" />
+      </SwiperWrapper>
+      <SwiperPagination class="testimonial-slider-pagination flex items-center justify-center" />
+    </Swiper>
   )
 }
-
-<script>
-  import { Swiper } from "swiper";
-  import "swiper/css";
-  import "swiper/css/pagination";
-  import { Autoplay, Pagination } from "swiper/modules";
-
-  // astro:page-load event is fired when the page is loaded
-  document.addEventListener("astro:page-load", () => {
-    new Swiper(".testimonial-slider", {
-      modules: [Pagination, Autoplay],
-      spaceBetween: 24,
-      loop: true,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".testimonial-slider-pagination",
-        type: "bullets",
-        clickable: true,
-      },
-      breakpoints: {
-        0: {
-          slidesPerView: 3,
-        },
-        992: {
-          slidesPerView: 4,
-        },
-      },
-    });
-  });
-</script>
