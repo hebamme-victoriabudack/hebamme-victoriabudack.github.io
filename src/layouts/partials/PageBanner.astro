@@ -39,10 +39,10 @@ const { banner } = Astro.props;
   href={banner.image}
 />
 <section
-  class="section hero h-[80svh] md:h-[70svh] pt-14 bg-primary/20 bg-blend-overlay bg-cover bg-center bg-fixed bg-no-repeat"
+  class="section pt-14 bg-primary/20 bg-blend-overlay bg-cover bg-center bg-fixed"
   style={`background-image: url('${banner.image}')`}
 >
-  <div class="container">
+  <div class="container h-screen max-h-[600px] min-h-[500px]">
     <div class="row justify-center h-full">
       <div class="lg:col-9 md:col-10 text-center h-full">
         <div
@@ -63,7 +63,7 @@ const { banner } = Astro.props;
               banner.content && (
                 <p
                   set:html={markdownify(banner.content)}
-                  class="mb-40 text-h6 md:text-h5 text-white text-shadow-lg/30"
+                  class="text-h6 md:text-h5 text-white text-shadow-lg/30"
                 />
               )
             }
