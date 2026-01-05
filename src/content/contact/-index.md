@@ -1,5 +1,5 @@
 ---
-title: "Hebamme Victoria Budack | Kontakt"
+title: "Kontakt"
 description: "Ihr sucht eine Hebamme in Dresden? So könnt ihr mich erreichen. Ich freue mich auf euch!"
 meta_title: "Hebamme Victoria Budack | Kontakt"
 image: "/images/topfpflanze.webp"
