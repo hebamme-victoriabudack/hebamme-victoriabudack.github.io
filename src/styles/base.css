@@ -1,6 +1,12 @@
 html {
   @apply text-base-sm md:text-base;
-  scroll-behavior: smooth;
+  @apply scroll-smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(html) {
+    @apply scroll-auto;
+  }
 }
 
 body {
