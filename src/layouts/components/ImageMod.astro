@@ -13,6 +13,7 @@ interface Props {
   format?: "auto" | "avif" | "jpeg" | "png" | "svg" | "webp";
   class?: string;
   style?: any;
+  transition_name?: string;
 }
 
 // Destructuring Astro.props to get the component's props
@@ -26,6 +27,7 @@ let {
   class: className,
   format,
   style,
+  transition_name,
 } = Astro.props;
 
 src = `/public${src}`;
@@ -57,6 +59,7 @@ const isValidPath = images[src] ? true : false;
       class={className}
       format={format}
       style={style}
+      transition:name={transition_name}
     />
   )
 }
