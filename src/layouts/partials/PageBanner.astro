@@ -53,7 +53,7 @@ const { banner } = Astro.props;
           <div class="row-start-1">
             <h1
               set:html={markdownify(banner.title)}
-              class="mb-6 text-h2 lg:text-h1 text-white text-shadow-lg/30"
+              class="text-h2 lg:text-h1 text-white text-shadow-lg/30"
             />
           </div>
           <!-- /Title -->
@@ -64,7 +64,7 @@ const { banner } = Astro.props;
               banner.content && (
                 <p
                   set:html={markdownify(banner.content)}
-                  class="text-h6 md:text-h5 text-white text-shadow-lg/30"
+                  class="mt-6 text-h6 md:text-h5 text-white text-shadow-lg/30"
                 />
               )
             }
@@ -72,7 +72,7 @@ const { banner } = Astro.props;
           <!-- /Subtitle -->
 
           <!-- NavButtons -->
-          <div class="row-start-3">
+          <div class="mt-12 row-start-3">
             {
               banner.buttons && banner.buttons.length > 0 && (
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
@@ -110,7 +110,7 @@ const { banner } = Astro.props;
           <!-- /NavButtons -->
 
           <!-- ContactDetails -->
-          <div class="row-start-4">
+          <div class="mt-12 row-start-4">
             {
               banner.contact_details && banner.contact_details.length > 0 && (
                 <div class="flex flex-col items-center gap-3 w-full">
