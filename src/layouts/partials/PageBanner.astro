@@ -39,11 +39,11 @@ const { banner } = Astro.props;
   href={banner.image}
 />
 <section
-  class="section pt-14 bg-primary/20 bg-blend-overlay bg-cover bg-center bg-fixed"
+  class="section pt-14 h-[75dvh] bg-primary/20 bg-blend-overlay bg-cover bg-center bg-fixed"
   style={`background-image: url('${banner.image}')`}
   transition:name=`image_${banner.title}`
 >
-  <div class="container h-screen max-h-150 min-h-125">
+  <div class="container">
     <div class="row justify-center h-full">
       <div class="lg:col-9 md:col-10 text-center h-full">
         <div
