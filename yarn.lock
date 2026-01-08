@@ -2001,11 +2001,6 @@ astro-auto-import@^0.4.5:
   dependencies:
     acorn "^8.8.0"
 
-astro-font@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/astro-font/-/astro-font-1.1.0.tgz#5daef75eacf7f22fdf15855c02fcdf22d8951054"
-  integrity sha512-hj1A0MkaJTeaArBpf1m9s4Nxu1Bn9h0QiEPeR9Dfjle25pT4CH4higzuadWzCRSvhGO2SzbM11YwZEF+cmLDxg==
-
 astro-swiper@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/astro-swiper/-/astro-swiper-1.4.0.tgz#8746036cdfd59c4f5c061931add0239a1e02ebfe"
