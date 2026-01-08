@@ -53,8 +53,5 @@
     "tailwind-bootstrap-grid": "^6.0.0",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3"
-  },
-  "engines": {
-    "node": ">=18 <=20"
   }
 }
