@@ -1,22 +1,18 @@
 ---
-// export const prerender = true;
-
 import Base from "@/layouts/Base.astro";
-import { getSinglePage } from "@/lib/contentParser.astro";
 import HeroBanner from "@/partials/HeroBanner.astro";
 import { render } from "astro:content";
+import { getSinglePageBySlug } from "@/lib/contentParser.astro";
 
-export async function getStaticPaths() {
-  const COLLECTION_FOLDER = "pages";
-  const pages = await getSinglePage(COLLECTION_FOLDER);
+const { regular } = Astro.params;
 
-  return pages.map((page) => ({
-    params: { regular: page.id },
-    props: { page },
-  }));
+// ✅ Fetch page at runtime
+const page = await getSinglePageBySlug("pages", regular);
+
+if (!page) {
+  return Astro.redirect("/404");
 }
 
-const { page } = Astro.props;
 const { title, meta_title, description, image } = page.data;
 const { Content } = await render(page);
 
