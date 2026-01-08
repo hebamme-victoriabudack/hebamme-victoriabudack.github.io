@@ -51,6 +51,6 @@ export default defineConfig({
     platformProxy: {
       enabled: true
     },
-    // imageService: 'cloudflare'
+    imageService: 'cloudflare'
   }),
 });
