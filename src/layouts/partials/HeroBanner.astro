@@ -34,23 +34,23 @@ const { banner } = Astro.props;
 
 <section class="relative h-dvh md:h-[70dvh] w-full">
   <!-- Background image -->
-  <div
+  <!-- <div
     class="absolute inset-0 bg-cover bg-center bg-primary/20 bg-blend-overlay"
     style={`background-image:
       url(${banner.image});
     `}
   >
-  </div>
+  </div> -->
 
-  <!-- <ImageMod
+  <ImageMod
     src={banner.image}
     alt={banner.title}
     class="absolute inset-0 h-full w-full object-cover"
     transition_name={`image_${markdownify(banner.title)}`}
-  /> -->
+  />
 
   <!-- Overlay -->
-  <!-- <div class="absolute inset-0 bg-primary/20 bg-blend-overlay"></div> -->
+  <div class="absolute inset-0 bg-primary/20 bg-blend-overlay"></div>
 
   <!-- Navbar -->
   <!-- <div class="relative z-20">
