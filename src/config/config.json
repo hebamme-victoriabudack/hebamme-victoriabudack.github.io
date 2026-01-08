@@ -4,7 +4,7 @@
     "base_url": "https://hebamme-dresden.eu",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "images/favicon.png",
+    "favicon": "/images/favicon.png",
     "logo": "",
     "logo_darkmode": "",
     "logo_width": "150",
