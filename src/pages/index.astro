@@ -1,7 +1,7 @@
 ---
 import Base from "@/layouts/Base.astro";
 import Services from "@/partials/Services.astro";
-import PageBanner from "@/partials/PageBanner.astro";
+import HeroBanner from "@/partials/HeroBanner.astro";
 import type { CollectionEntry } from "astro:content";
 import { getEntry, render } from "astro:content";
 
@@ -17,7 +17,7 @@ const { banner, services, offers } = homepage.data;
 
 <Base>
   <!-- Banner -->
-  <PageBanner banner={banner} />
+  <HeroBanner banner={banner} />
   <!-- /Banner -->
 
   <!-- Content -->
