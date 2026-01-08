@@ -14,7 +14,7 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   site: config.site.base_url ? config.site.base_url : "https://hebamme-dresden.eu",
   // base: config.site.base_path ? config.site.base_path : "/",
-  output: "static",
+  output: "server",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   // image: { service: sharp() },
   vite: { plugins: [tailwindcss()] },
