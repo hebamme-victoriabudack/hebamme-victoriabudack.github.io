@@ -6,16 +6,18 @@ import AutoImport from "astro-auto-import";
 import { defineConfig } from "astro/config";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
-import sharp from "sharp";
 import config from "./src/config/config.json";
+
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
   site: config.site.base_url ? config.site.base_url : "https://hebamme-dresden.eu",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
-  image: { service: sharp() },
+  // image: { service: sharp() },
   vite: { plugins: [tailwindcss()] },
+
   integrations: [
     react(),
     sitemap({
@@ -37,6 +39,7 @@ export default defineConfig({
     }),
     mdx(),
   ],
+
   markdown: {
     remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
     shikiConfig: { theme: "one-dark-pro", wrap: true },
@@ -54,9 +57,17 @@ export default defineConfig({
       },
     },
   },
+
   cache: {
     static: {
       maxAge: '365 days', // Cache static assets for a year
     },
   },
+
+  adapter: cloudflare({
+    platformProxy: {
+      enabled: true
+    },
+    imageService: 'cloudflare'
+  }),
 });
