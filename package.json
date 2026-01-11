@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "concurrently \"node scripts/themeGenerator.js --watch\" \"astro dev\"",
     "build": "node scripts/themeGenerator.js && astro build",
+    "postbuild": "cp dist/sitemap-0.xml public/sitemap.xml || true",
     "preview": "astro preview",
     "check": "astro check",
     "format": "prettier -w ./src",

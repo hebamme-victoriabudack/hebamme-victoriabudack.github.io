@@ -1,12 +1,23 @@
 ---
+export const prerender = true;
+
 import Base from "@/layouts/Base.astro";
 import HeroBanner from "@/partials/HeroBanner.astro";
 import { render } from "astro:content";
-import { getSinglePageBySlug } from "@/lib/contentParser.astro";
+import { getSinglePage, getSinglePageBySlug } from "@/lib/contentParser.astro";
+
+// ✅ Tell Astro which routes exist at build time
+export async function getStaticPaths() {
+  const pages = await getSinglePage("pages");
+
+  return pages.map((page) => ({
+    params: {
+      regular: page.id, // IMPORTANT: id is the slug
+    },
+  }));
+}
 
 const { regular } = Astro.params;
-
-// ✅ Fetch page at runtime
 const page = await getSinglePageBySlug("pages", regular);
 
 if (!page) {
@@ -16,10 +27,7 @@ if (!page) {
 const { title, meta_title, description, image } = page.data;
 const { Content } = await render(page);
 
-const bannerData = {
-  title,
-  image,
-};
+const bannerData = { title, image };
 ---
 
 <Base

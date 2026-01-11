@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /api/*
 
-Sitemap: https://hebamme-dresden.eu/sitemap-index.xml
+Sitemap: https://hebamme-dresden.eu/sitemap.xml
