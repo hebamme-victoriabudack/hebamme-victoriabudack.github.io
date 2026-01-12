@@ -13,7 +13,7 @@ import cloudflare from "@astrojs/cloudflare";
 // https://astro.build/config
 export default defineConfig({
   site: config.site.base_url ? config.site.base_url : "https://hebamme-dresden.eu",
-  output: "server",
+  output: "static",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   vite: { plugins: [tailwindcss()] },
 
@@ -49,6 +49,5 @@ export default defineConfig({
     platformProxy: {
       enabled: true
     },
-    imageService: 'compile'
   }),
 });
