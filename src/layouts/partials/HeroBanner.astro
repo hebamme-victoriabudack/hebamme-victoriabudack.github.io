@@ -93,45 +93,38 @@ const { banner } = Astro.props;
           </div>
         )
       }
-      <!-- {
+      {
         banner.contact_details && banner.contact_details.length > 0 && (
           <div class="mt-12 flex flex-col items-center gap-3 w-full">
-            {banner.contact_details.map(
-              (entry: {
-                link: string | URL | null | undefined;
-                icon: string;
-                label: unknown;
-                info: unknown;
-              }) => (
-                <div class="w-full">
-                  <a
-                    href={entry.link}
-                    class="flex items-start no-underline w-full px-6 py-4 rounded-xl transition-all duration-300 group bg-primary/40 backdrop-blur-sm hover:bg-primary/60 hover:shadow-lg border border-primary hover:border-primary/30"
-                  >
-                    <div class="shrink-0 w-16 h-16 flex items-center justify-center">
-                      <button class="btn-round btn-primary dark:bg-primary/50 dark:hover:bg-primary btn-group-hover group-hover:animate-wiggle text-white dark:text-white">
-                        <DynamicIcon
-                          size={32}
-                          icon={entry.icon}
-                          class="text-white"
-                        />
-                      </button>
-                    </div>
-                    <div class="ml-4 text-left flex flex-col justify-center pt-1 ">
-                      <p class=" text-xs text-white text-shadow-lg/20 md:text-shadow-xl/20 font-light m-0 leading-tight">
-                        {entry.label}
-                      </p>
-                      <p class="text-h6 md:text-h5 text-white text-shadow-lg/20 md:text-shadow-xl/20 font-semibold m-0 mt-1 leading-tight">
-                        {entry.info}
-                      </p>
-                    </div>
-                  </a>
-                </div>
-              ),
-            )}
+            {banner.contact_details.map((entry: ContactDetails) => (
+              <div class="w-full">
+                <a
+                  href={entry.link}
+                  class="flex items-start no-underline w-full px-6 py-4 rounded-xl transition-all duration-300 group bg-primary/40 backdrop-blur-sm hover:bg-primary/60 hover:shadow-lg border border-primary hover:border-primary/30"
+                >
+                  <div class="shrink-0 w-16 h-16 flex items-center justify-center">
+                    <button class="btn-round btn-primary dark:bg-primary/50 dark:hover:bg-primary btn-group-hover group-hover:animate-wiggle text-white dark:text-white">
+                      <DynamicIcon
+                        size={32}
+                        icon={entry.icon}
+                        class="text-white"
+                      />
+                    </button>
+                  </div>
+                  <div class="ml-4 text-left flex flex-col justify-center pt-1 ">
+                    <p class=" text-xs text-white text-shadow-lg/20 md:text-shadow-xl/20 font-light m-0 leading-tight">
+                      {entry.label}
+                    </p>
+                    <p class="text-h6 md:text-h5 text-white text-shadow-lg/20 md:text-shadow-xl/20 font-semibold m-0 mt-1 leading-tight">
+                      {entry.info}
+                    </p>
+                  </div>
+                </a>
+              </div>
+            ))}
           </div>
         )
-      } -->
+      }
     </div>
   </div>
 </section>
