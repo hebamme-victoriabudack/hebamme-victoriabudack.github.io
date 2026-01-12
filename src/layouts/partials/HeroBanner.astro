@@ -21,6 +21,7 @@ interface ContactDetails {
 interface Props {
   banner: {
     image: string;
+    alt?: string;
     title: string;
     // Optional
     content?: string;
@@ -33,29 +34,18 @@ const { banner } = Astro.props;
 ---
 
 <section class="relative h-dvh md:h-[70dvh] w-full">
-  <!-- Background image -->
-  <!-- <div
-    class="absolute inset-0 bg-cover bg-center bg-primary/20 bg-blend-overlay"
-    style={`background-image:
-      url(${banner.image});
-    `}
-  >
-  </div> -->
-
   <ImageMod
     src={banner.image}
     alt={banner.title}
     class="absolute inset-0 h-full w-full object-cover"
-    transition_name={`image_${markdownify(banner.title)}`}
+    sizes="(max-width: 768px) 100vh, 100vw"
+    widths={[768, 1024, 1280, 1536, 1920, 2560]}
+    loading="eager"
+    priority
   />
 
   <!-- Overlay -->
   <div class="absolute inset-0 bg-primary/20 bg-blend-overlay"></div>
-
-  <!-- Navbar -->
-  <!-- <div class="relative z-20">
-    <Navbar />
-  </div> -->
 
   <!-- Hero content -->
   <div
@@ -103,7 +93,7 @@ const { banner } = Astro.props;
           </div>
         )
       }
-      {
+      <!-- {
         banner.contact_details && banner.contact_details.length > 0 && (
           <div class="mt-12 flex flex-col items-center gap-3 w-full">
             {banner.contact_details.map(
@@ -141,7 +131,7 @@ const { banner } = Astro.props;
             )}
           </div>
         )
-      }
+      } -->
     </div>
   </div>
 </section>

@@ -21,15 +21,11 @@ const swiperOptions: SwiperOptions = {
     el: ".testimonial-slider-pagination",
     type: "bullets",
     clickable: true,
-    dynamicBullets: false,
   },
   breakpoints: {
-    0: {
-      slidesPerView: 3,
-    },
-    992: {
-      slidesPerView: 4,
-    },
+    0: { slidesPerView: 2 },
+    512: { slidesPerView: 3 },
+    992: { slidesPerView: 4 },
   },
 };
 ---
@@ -37,18 +33,21 @@ const swiperOptions: SwiperOptions = {
 {
   testimonials.frontmatter.enable && (
     <Swiper options={swiperOptions} class="testimonial-slider">
-      <SwiperWrapper class={"mb-12"}>
+      <SwiperWrapper class="mb-12">
         {testimonials.frontmatter.testimonials.map(
           (item: { image: string; alt: string }) => (
             <SwiperSlide>
-              <ImageMod
-                height={384}
-                width={384}
-                src={item.image}
-                alt={item.alt}
-                class="my-2 w-full aspect-square object-contain rounded-lg"
-                format="webp"
-              />
+              <div class="w-full aspect-square rounded-lg overflow-hidden">
+                <ImageMod
+                  src={item.image}
+                  alt={item.alt}
+                  class="w-full h-full object-contain"
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(min-width: 992px) 25vw, 33vw"
+                  widths={[160, 320, 480, 640, 768]}
+                />
+              </div>
             </SwiperSlide>
           ),
         )}

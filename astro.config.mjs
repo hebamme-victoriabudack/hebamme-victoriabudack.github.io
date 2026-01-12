@@ -3,55 +3,65 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import AutoImport from "astro-auto-import";
-import { defineConfig, passthroughImageService } from "astro/config";
+import { defineConfig } from "astro/config";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
 import config from "./src/config/config.json";
 
-import cloudflare from "@astrojs/cloudflare";
-
-// https://astro.build/config
 export default defineConfig({
-  site: config.site.base_url ? config.site.base_url : "https://hebamme-dresden.eu",
-  output: "static",
-  trailingSlash: config.site.trailing_slash ? "always" : "never",
-  vite: { plugins: [tailwindcss()] },
+  site: config.site.base_url
+    ? config.site.base_url
+    : "https://hebamme-dresden.eu",
 
+  output: "static",
+
+  trailingSlash: config.site.trailing_slash ? "always" : "never",
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
+
+  // Sharp image optimization
   image: {
-    service: passthroughImageService(), // Disables sharp and uses no processing
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+    },
   },
 
   integrations: [
     react(),
+
     sitemap({
       filter: (page) =>
-        page !== 'https://hebamme-dresden.eu/datenschutz' &&
-        page !== 'https://hebamme-dresden.eu/impressum',
+        page !== "https://hebamme-dresden.eu/datenschutz" &&
+        page !== "https://hebamme-dresden.eu/impressum",
       i18n: {
-        defaultLocale: 'de',
+        defaultLocale: "de",
         locales: {
-          de: 'de-DE', // The `defaultLocale` value must present in `locales` keys
-        }
-      }
+          de: "de-DE",
+        },
+      },
     }),
+
     AutoImport({
       imports: [
         "@/shortcodes/Button",
         "@/shortcodes/Accordion",
       ],
     }),
+
     mdx(),
   ],
 
   markdown: {
-    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
-    shikiConfig: { theme: "one-dark-pro", wrap: true },
+    remarkPlugins: [
+      remarkToc,
+      [remarkCollapse, { test: "Table of contents" }],
+    ],
+    shikiConfig: {
+      theme: "one-dark-pro",
+      wrap: true,
+    },
     extendDefaultPlugins: true,
   },
-
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: true
-    },
-  }),
 });
