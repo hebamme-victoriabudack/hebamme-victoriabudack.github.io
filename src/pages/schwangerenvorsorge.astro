@@ -1,0 +1,35 @@
+---
+import Base from "@/layouts/Base.astro";
+import HeroBanner from "@/partials/HeroBanner.astro";
+
+import Content, { frontmatter } from "@/content/pages/schwangerenvorsorge.mdx";
+
+const { title, meta_title, description, image } = frontmatter;
+const bannerData = {
+  title,
+  image,
+};
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <!-- Banner -->
+  <HeroBanner banner={bannerData} />
+  <!-- /Banner -->
+
+  <!-- Content -->
+  <div class="container pt-8">
+    <div class="row justify-center">
+      <div class="md:col-10 lg:col-10">
+        <div class="content">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Content -->
+</Base>
