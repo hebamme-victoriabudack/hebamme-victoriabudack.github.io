@@ -3,7 +3,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import AutoImport from "astro-auto-import";
-import { defineConfig } from "astro/config";
+import { defineConfig, passthroughImageService } from "astro/config";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
 import config from "./src/config/config.json";
@@ -18,9 +18,7 @@ export default defineConfig({
   vite: { plugins: [tailwindcss()] },
 
   image: {
-    service: {
-      entrypoint: "astro/assets/services/noop",
-    },
+    service: passthroughImageService(), // Disables sharp and uses no processing
   },
 
   integrations: [
