@@ -17,6 +17,12 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   vite: { plugins: [tailwindcss()] },
 
+  image: {
+    service: {
+      entrypoint: "astro/assets/services/noop",
+    },
+  },
+
   integrations: [
     react(),
     sitemap({
