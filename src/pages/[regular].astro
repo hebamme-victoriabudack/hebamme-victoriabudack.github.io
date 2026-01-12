@@ -1,10 +1,30 @@
 ---
 import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
 import HeroBanner from "@/partials/HeroBanner.astro";
+import { render } from "astro:content";
 
-import Content, { frontmatter } from "@/content/pages/akupunktur.mdx";
+const { regular } = Astro.params;
 
-const { title, meta_title, description, image } = frontmatter;
+// get static paths for all pages
+export async function getStaticPaths() {
+  const COLLECTION_FOLDER = "pages";
+
+  const pages = await getSinglePage(COLLECTION_FOLDER);
+
+  const paths = pages.map((page) => ({
+    params: {
+      regular: page.id,
+    },
+    props: { page },
+  }));
+  return paths;
+}
+
+const { page } = Astro.props;
+const { title, meta_title, description, image } = page.data;
+const { Content } = await render(page);
+
 const bannerData = {
   title,
   image,
