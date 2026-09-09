@@ -16,18 +16,6 @@ import { ClientRouter } from "astro:transitions";
 const pf = theme.fonts.font_family.primary;
 const sf = theme.fonts.font_family.secondary;
 
-let fontPrimary, fontSecondary;
-if (theme.fonts.font_family.primary) {
-  fontPrimary = theme.fonts.font_family.primary
-    .replace(/\+/g, " ")
-    .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;.]+/gi, "");
-}
-if (theme.fonts.font_family.secondary) {
-  fontSecondary = theme.fonts.font_family.secondary
-    .replace(/\+/g, " ")
-    .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;.]+/gi, "");
-}
-
 // types for frontmatters
 export interface Props {
   title?: string;
@@ -47,11 +35,9 @@ const { title, meta_title, description, image, noindex, canonical } =
 <html lang="de">
   <head>
     <!-- google tag manager -->
-    {
-      config.google_tag_manager.enable && (
-        <GoogleTagmanager id={config.google_tag_manager.gtm_id} />
-      )
-    }
+    {config.google_tag_manager.enable && (
+      <GoogleTagmanager id={config.google_tag_manager.gtm_id} />
+    )}
     <!-- favicon -->
     <link rel="icon" type="image/png" href={config.site.favicon} />
     <link rel="apple-touch-icon" href={config.site.favicon} />
@@ -172,11 +158,9 @@ const { title, meta_title, description, image, noindex, canonical } =
   </head>
   <body>
     {/* google tag manager noscript */}
-    {
-      config.google_tag_manager.enable && (
-        <GoogleTagmanagerNoscript id={config.google_tag_manager.gtm_id} />
-      )
-    }
+    {config.google_tag_manager.enable && (
+      <GoogleTagmanagerNoscript id={config.google_tag_manager.gtm_id} />
+    )}
 
     <TwSizeIndicator />
     <Header />

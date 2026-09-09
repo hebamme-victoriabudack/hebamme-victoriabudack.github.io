@@ -1,6 +1,7 @@
 ---
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
+import type { ImageOutputFormat } from "astro";
 
 interface Props {
   src: string;
@@ -13,6 +14,9 @@ interface Props {
 
   sizes?: string;
   widths?: number[];
+  width?: number;
+  height?: number;
+  format?: ImageOutputFormat;
   priority?: boolean;
 }
 
@@ -25,6 +29,9 @@ const {
   decoding = "async",
   sizes = "100vw",
   widths,
+  width,
+  height,
+  format,
   priority = false,
 } = Astro.props;
 
@@ -47,24 +54,21 @@ if (!image) {
       `  expected key:  ${resolvedPath}`,
   );
 }
-
-if (!image) {
-  console.error(`\x1b[31mImage not found: ${src}\x1b[0m`);
-}
 ---
 
-{
-  image && (
-    <Image
-      src={image}
-      alt={alt}
-      class={className}
-      style={style}
-      sizes={sizes}
-      widths={widths}
-      loading={priority ? "eager" : loading}
-      decoding={decoding}
-      priority={priority}
-    />
-  )
-}
+{image && (
+  <Image
+    src={image}
+    alt={alt}
+    class={className}
+    style={style}
+    sizes={sizes}
+    widths={widths}
+    width={width}
+    height={height}
+    format={format}
+    loading={priority ? "eager" : loading}
+    decoding={decoding}
+    priority={priority}
+  />
+)}

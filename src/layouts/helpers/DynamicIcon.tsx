@@ -1,20 +1,19 @@
 import React, { type FC } from "react";
-import type { IconType } from "react-icons";
+import type { IconBaseProps, IconType } from "react-icons";
 import * as FaIcons from "react-icons/fa";
 import * as LuIcons from "react-icons/lu";
 import * as ImIcons from "react-icons/im";
 
 type IconMap = Record<string, IconType>;
 
-interface IDynamicIcon extends React.SVGProps<SVGSVGElement> {
+interface IDynamicIcon extends IconBaseProps {
   icon: string;
-  className?: string;
 }
 
 const iconLibraries: { [key: string]: IconMap } = {
   fa: FaIcons,
   lu: LuIcons,
-  im: ImIcons
+  im: ImIcons,
 };
 
 const DynamicIcon: FC<IDynamicIcon> = ({ icon, ...props }) => {

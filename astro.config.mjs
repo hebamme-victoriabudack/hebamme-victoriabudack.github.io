@@ -1,6 +1,7 @@
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
+import { unified } from "@astrojs/markdown-remark";
 import tailwindcss from "@tailwindcss/vite";
 import AutoImport from "astro-auto-import";
 import { defineConfig } from "astro/config";
@@ -54,14 +55,15 @@ export default defineConfig({
   ],
 
   markdown: {
-    remarkPlugins: [
-      remarkToc,
-      [remarkCollapse, { test: "Table of contents" }],
-    ],
+    processor: unified({
+      remarkPlugins: [
+        remarkToc,
+        [remarkCollapse, { test: "Table of contents" }],
+      ],
+    }),
     shikiConfig: {
       theme: "one-dark-pro",
       wrap: true,
     },
-    extendDefaultPlugins: true,
   },
 });

@@ -1,12 +1,13 @@
 import { glob } from "astro/loaders";
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 
 const commonFields = {
   title: z.string(),
   description: z.string(),
   meta_title: z.string().optional(),
   date: z.date().optional(),
-  image: z.string().optional(),
+  image: z.string(),
   draft: z.boolean(),
 };
 
@@ -28,9 +29,9 @@ const contactCollection = defineCollection({
         label: z.string(),
         info: z.string(),
         icon: z.string(),
-        link: z.string().optional()
-      })
-    )
+        link: z.string().optional(),
+      }),
+    ),
   }),
 });
 
@@ -48,7 +49,7 @@ const homepageCollection = defineCollection({
           label: z.string(),
           icon: z.string(),
           link: z.string(),
-        })
+        }),
       ),
     }),
     services: z.object({
@@ -86,7 +87,7 @@ const homepageCollection = defineCollection({
           }),
         }),
       ),
-    })
+    }),
   }),
 });
 
@@ -115,5 +116,5 @@ export const collections = {
   contact: contactCollection,
 
   // sections
-  imageTestimonialSectionCollection: imageTestimonialSectionCollection
+  imageTestimonialSectionCollection: imageTestimonialSectionCollection,
 };

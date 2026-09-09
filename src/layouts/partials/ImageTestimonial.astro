@@ -30,29 +30,27 @@ const swiperOptions: SwiperOptions = {
 };
 ---
 
-{
-  testimonials.frontmatter.enable && (
-    <Swiper options={swiperOptions} class="testimonial-slider">
-      <SwiperWrapper class="mb-12">
-        {testimonials.frontmatter.testimonials.map(
-          (item: { image: string; alt: string }) => (
-            <SwiperSlide>
-              <div class="w-full aspect-square rounded-lg overflow-hidden">
-                <ImageMod
-                  src={item.image}
-                  alt={item.alt}
-                  class="w-full h-full object-contain"
-                  loading="lazy"
-                  decoding="async"
-                  sizes="(min-width: 992px) 25vw, 33vw"
-                  widths={[160, 320, 480, 640, 768]}
-                />
-              </div>
-            </SwiperSlide>
-          ),
-        )}
-      </SwiperWrapper>
-      <SwiperPagination class="testimonial-slider-pagination flex items-center justify-center" />
-    </Swiper>
-  )
-}
+{testimonials.frontmatter.enable && (
+  <Swiper options={swiperOptions} class="testimonial-slider">
+    <SwiperWrapper class="mb-12">
+      {testimonials.frontmatter.testimonials.map(
+        (item: { image: string; alt: string }) => (
+          <SwiperSlide>
+            <div class="w-full aspect-square rounded-lg overflow-hidden">
+              <ImageMod
+                src={item.image}
+                alt={item.alt}
+                class="w-full h-full object-contain"
+                loading="lazy"
+                decoding="async"
+                sizes="(min-width: 992px) 25vw, 33vw"
+                widths={[160, 320, 480, 640, 768]}
+              />
+            </div>
+          </SwiperSlide>
+        ),
+      )}
+    </SwiperWrapper>
+    <SwiperPagination class="testimonial-slider-pagination flex items-center justify-center" />
+  </Swiper>
+)}
