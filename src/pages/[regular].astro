@@ -1,5 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
+import config from "@/config/config.json";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import HeroBanner from "@/partials/HeroBanner.astro";
 import { render } from "astro:content";
@@ -27,6 +28,43 @@ const bannerData = {
   title,
   image,
 };
+
+// legal boilerplate pages aren't real "services" - skip Service/Breadcrumb schema for them
+const LEGAL_PAGES = ["impressum", "datenschutz"];
+const pageUrl = `${config.site.base_url}/${page.id}/`;
+
+const jsonLd = LEGAL_PAGES.includes(page.id)
+  ? undefined
+  : [
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        serviceType: title,
+        name: title,
+        description,
+        url: pageUrl,
+        provider: { "@id": `${config.site.base_url}/#practitioner` },
+        areaServed: { "@type": "City", name: "Dresden" },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Startseite",
+            item: `${config.site.base_url}/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: title,
+            item: pageUrl,
+          },
+        ],
+      },
+    ];
 ---
 
 <Base
@@ -34,6 +72,7 @@ const bannerData = {
   meta_title={meta_title}
   description={description}
   image={image}
+  jsonLd={jsonLd}
 >
   <!-- Banner -->
   <HeroBanner banner={bannerData} />

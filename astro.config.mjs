@@ -33,9 +33,13 @@ export default defineConfig({
     react(),
 
     sitemap({
-      filter: (page) =>
-        page !== "https://hebamme-dresden.eu/datenschutz" &&
-        page !== "https://hebamme-dresden.eu/impressum",
+      filter: (page) => {
+        const path = page.replace(/\/$/, "");
+        return (
+          path !== "https://hebamme-dresden.eu/datenschutz" &&
+          path !== "https://hebamme-dresden.eu/impressum"
+        );
+      },
       i18n: {
         defaultLocale: "de",
         locales: {

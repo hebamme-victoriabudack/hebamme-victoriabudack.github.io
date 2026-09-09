@@ -1,5 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
+import config from "@/config/config.json";
 import { getListPage } from "@/lib/contentParser.astro";
 import HeroBanner from "@/partials/HeroBanner.astro";
 
@@ -17,6 +18,16 @@ const bannerData = {
   image,
   contact_details,
 };
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    url: `${config.site.base_url}/kontakt/`,
+    name: title,
+    mainEntity: { "@id": `${config.site.base_url}/#practitioner` },
+  },
+];
 ---
 
 <Base
@@ -24,6 +35,7 @@ const bannerData = {
   meta_title={meta_title}
   description={description}
   image={image}
+  jsonLd={jsonLd}
 >
   <HeroBanner banner={bannerData} />
 

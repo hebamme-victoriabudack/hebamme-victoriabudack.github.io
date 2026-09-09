@@ -24,11 +24,64 @@ export interface Props {
   image?: string;
   noindex?: boolean;
   canonical?: string;
+  jsonLd?: Record<string, unknown>[];
 }
 
 // destructure frontmatter
-const { title, meta_title, description, image, noindex, canonical } =
+const { title, meta_title, description, image, noindex, canonical, jsonLd } =
   Astro.props;
+
+// self-referencing canonical unless a page explicitly overrides it
+const resolvedCanonical =
+  canonical ?? new URL(Astro.url.pathname, config.site.base_url).toString();
+
+// sitewide entity graph: the practitioner + the site itself
+const business = config.business;
+const practitionerId = `${config.site.base_url}/#practitioner`;
+const siteGraph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Physician", "Person"],
+      "@id": practitionerId,
+      name: business.name,
+      jobTitle: business.jobTitle,
+      medicalSpecialty: "Midwifery",
+      description: config.metadata.meta_description,
+      url: `${config.site.base_url}/`,
+      image: `${config.site.base_url}${config.metadata.meta_image}`,
+      telephone: business.telephone,
+      email: business.email,
+      identifier: {
+        "@type": "PropertyValue",
+        name: "IK-Nummer",
+        value: business.identifier,
+      },
+      address: {
+        "@type": "PostalAddress",
+        ...business.address,
+      },
+      areaServed: business.areaServed,
+      affiliation: {
+        "@type": "MedicalBusiness",
+        name: business.affiliation.name,
+        url: business.affiliation.url,
+        address: {
+          "@type": "PostalAddress",
+          ...business.address,
+        },
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${config.site.base_url}/#website`,
+      url: `${config.site.base_url}/`,
+      name: config.site.title,
+      inLanguage: "de-DE",
+      publisher: { "@id": practitionerId },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -84,10 +137,19 @@ const { title, meta_title, description, image, noindex, canonical } =
     </title>
 
     <!-- canonical url -->
-    {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
+    <link rel="canonical" href={resolvedCanonical} item-prop="url" />
 
     <!-- noindex robots -->
     {noindex && <meta name="robots" content="noindex,nofollow" />}
+
+    <!-- structured data: practitioner + website (sitewide) -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(siteGraph)} />
+
+    <!-- structured data: page-specific (Service, BreadcrumbList, ...) -->
+    {jsonLd &&
+      jsonLd.map((block) => (
+        <script type="application/ld+json" is:inline set:html={JSON.stringify(block)} />
+      ))}
 
     <!-- meta-description -->
     <meta

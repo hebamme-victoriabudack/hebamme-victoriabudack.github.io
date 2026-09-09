@@ -3,7 +3,7 @@
     "title": "Hebamme in Dresden | Victoria Budack",
     "base_url": "https://hebamme-dresden.eu",
     "base_path": "/",
-    "trailing_slash": false,
+    "trailing_slash": true,
     "favicon": "/favicon.png",
     "logo": "",
     "logo_darkmode": "",
@@ -47,5 +47,37 @@
     "meta_author": "Hebamme Victoria Budack",
     "meta_image": "/images/hebamme_dresden_vb-5_square.webp",
     "meta_description": "Sucht ihr eine Hebamme in Dresden? Ich begleite euch bei eurem Abenteuer: von der Schwangerschaft über das erste Lächeln und darüber hinaus."
+  },
+  "business": {
+    "name": "Victoria Budack",
+    "jobTitle": "Hebamme",
+    "telephone": "+4915202090641",
+    "email": "info@hebamme-victoriabudack.de",
+    "identifier": "451607857",
+    "address": {
+      "streetAddress": "Waldschlößchenstraße 22",
+      "postalCode": "01099",
+      "addressLocality": "Dresden",
+      "addressCountry": "DE"
+    },
+    "areaServed": [
+      "Dresden",
+      "Heidenau",
+      "Großzschachwitz",
+      "Kleinzschachwitz",
+      "Laubegast",
+      "Leuben",
+      "Zschieren",
+      "Meußlitz",
+      "Lockwitz",
+      "Pillnitz",
+      "Nickern",
+      "Luga",
+      "Niedersedlitz"
+    ],
+    "affiliation": {
+      "name": "Hebammenhandwerk Dresden",
+      "url": "https://hebammenhandwerk-dresden.de"
+    }
   }
 }
