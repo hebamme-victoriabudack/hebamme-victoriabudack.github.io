@@ -6,6 +6,9 @@
   "license": "MIT",
   "packageManager": "yarn@1.22.22",
   "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
   "scripts": {
     "dev": "concurrently \"node scripts/themeGenerator.js --watch\" \"astro dev\"",
     "build": "node scripts/themeGenerator.js && astro build",
