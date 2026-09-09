@@ -735,6 +735,16 @@
     "@eslint/core" "^1.2.1"
     levn "^0.4.1"
 
+"@fontsource/heebo@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/heebo/-/heebo-5.3.0.tgz#9fc1de7a6dc6bd10d710b41dfc68492e19ffd79f"
+  integrity sha512-Z01U2fWWrfJnSE6SmDYtZJ1uCnKs8V3WSdip/lVDfKnsC1ASumb7IZmOrXjaYK+PVm7qGD3+4cwTAFOxG5uMaw==
+
+"@fontsource/signika@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/signika/-/signika-5.3.0.tgz#d7e0b0e474565a2d82aadedc3b0b41f72a0ac244"
+  integrity sha512-X2AwuFR6sqGeO9zwjsZjnAkv2NSvDbflhyolpATZBHo465xZGGCJmEsTfQUoooCaCBKdW43sD36ueQIu7/2p7Q==
+
 "@humanfs/core@^0.19.2":
   version "0.19.2"
   resolved "https://registry.yarnpkg.com/@humanfs/core/-/core-0.19.2.tgz#a8272ca03b2acf492670222b2320b6c421bfde60"

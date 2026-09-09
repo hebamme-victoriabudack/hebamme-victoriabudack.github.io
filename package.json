@@ -24,6 +24,8 @@
     "@astrojs/react": "6.0.5",
     "@astrojs/sitemap": "3.7.4",
     "@digi4care/astro-google-tagmanager": "^2.0.0",
+    "@fontsource/heebo": "^5.3.0",
+    "@fontsource/signika": "^5.3.0",
     "astro": "7.3.2",
     "astro-auto-import": "^0.6.0",
     "astro-swiper": "^2.10.0",
