@@ -55,7 +55,6 @@ yarn run build
 
 - Add H2/H3 subheadings to the remaining service pages (only
   `akupunktur.mdx` has them)
-- Add `public/_headers` with basic security headers for Cloudflare Pages
 - Populate the unused `date` frontmatter field for freshness/lastmod
   signals
 - Fix the outdated "Privacy Shield" reference in `datenschutz.mdx`
