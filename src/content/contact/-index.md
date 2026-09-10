@@ -10,7 +10,7 @@ contact_details:
     icon: "ImWoman"
   - label: "Telefon"
     info: "0152 02090641"
-    link: "tel:+49 152 02090641"
+    link: "tel:+4915202090641"
     icon: "FaMobileAlt"
   - label: "E-Mail"
     info: "info@hebamme-victoriabudack.de"
