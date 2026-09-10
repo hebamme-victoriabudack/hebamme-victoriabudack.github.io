@@ -13,6 +13,7 @@
     "dev": "concurrently \"node scripts/themeGenerator.js --watch\" \"astro dev\"",
     "build": "node scripts/themeGenerator.js && astro build",
     "preview": "astro preview",
+    "indexnow": "node scripts/indexnow.js",
     "check": "astro check",
     "format": "prettier -w ./src",
     "remove-darkmode": "node scripts/removeDarkmode.js && yarn format"
