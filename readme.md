@@ -18,29 +18,14 @@ yarn run build
 
 ### ToDos
 
-- [x] Astro component for banner image
-- [x] Revise css classes for unified look
-- [x] Add images to testimonials
-- [x] Add section "Vita"
-- [x] Add contact site
-- [x] Resolve existing errors on ```banner``` and ```size``` (Icon Property) that however still work
-- [ ] Add image position (and desired size) to ```banner```
-- [x] Add missing content
-- [x] Responsive images 
-- [ ] Fix navbar & Hero Banner
-    - [ ] not properly centered
-    - [ ] style overall not great
-    - [ ] nav group cannot be opened on touch devices
-    - [ ] Hero banner resizes when URL bar disappears
-- [ ] Fix scrolling when pressing back in the browser
-- [x] Add nicer animations where applicable
-- [x] Add proper SEO
-- [x] Add sitemap and robots.txt
-- [x] Setup GitHub actions
-- [x] Deploy first version under https://hebamme-dresden.eu
-- [x] Link Google Search Console
-- [x] Deploy on Cloudflare returns an error
-- [x] Using Cloudflare leads to long loading times for images
+- Rotate Brevo Key
+- Improve SEO 
+- Fix navbar & Hero Banner
+    - not properly centered
+    - style overall not great
+    - nav group cannot be opened on touch devices
+    - Hero banner resizes when URL bar disappears
+- Fix scrolling when pressing back in the browser
 
 
 
