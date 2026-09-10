@@ -39,8 +39,6 @@ yarn run build
 - Surface the capacity/availability message (currently buried in
   `wochenbettbetreuung.mdx`) prominently on the homepage and
   Schwangerenvorsorge page
-- Normalize "wir/uns" voice to "ich" in `trageberatung.mdx`,
-  `stoffwindelberatung.mdx`, and the end of `akupunktur.mdx`
 - Re-enable the contact form in `kontakt.astro` (already built and
   Brevo-wired, just commented out)
 - Check Cloudflare Security settings (Bot Fight Mode / Turnstile) — the
