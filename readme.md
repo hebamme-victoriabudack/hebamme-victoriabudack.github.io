@@ -53,8 +53,6 @@ yarn run build
 
 #### SEO — Medium
 
-- Add H2/H3 subheadings to the remaining service pages (only
-  `akupunktur.mdx` has them)
 - Populate the unused `date` frontmatter field for freshness/lastmod
   signals
 - Fix the outdated "Privacy Shield" reference in `datenschutz.mdx`
