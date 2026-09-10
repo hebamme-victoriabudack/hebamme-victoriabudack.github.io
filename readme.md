@@ -60,16 +60,11 @@ yarn run build
 - Fix the outdated "Privacy Shield" reference in `datenschutz.mdx`
 - Verify in Search Console whether hebamme-victoriabudack.de (old
   WordPress site) is competing with hebamme-dresden.eu
-- Increase mobile tap target sizes (hamburger icon, dark-mode toggle)
 - Manually verify the Google Business Profile is claimed and correctly
   categorized as "Hebamme"/"Midwife"
 
 #### SEO — Low
 
-- Normalize phone number display formatting across Impressum, Kontakt,
-  and JSON-LD
-- Reuse the canonical-URL logic for `og:url` instead of a separate string
-  concatenation in `Base.astro`
 - Implement IndexNow
 
 
