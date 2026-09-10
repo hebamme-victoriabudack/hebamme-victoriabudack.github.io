@@ -27,7 +27,7 @@
   },
   "params": {
     "contact_form_action": "#",
-    "copyright": "Copyright 2026 — Victoria Budack"
+    "copyright": "Copyright {year} — Victoria Budack"
   },
   "navigation_button": {
     "enable": false,
