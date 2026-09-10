@@ -73,6 +73,7 @@ const jsonLd = LEGAL_PAGES.includes(page.id)
   description={description}
   image={image}
   jsonLd={jsonLd}
+  noindex={LEGAL_PAGES.includes(page.id)}
 >
   <!-- Banner -->
   <HeroBanner banner={bannerData} />
