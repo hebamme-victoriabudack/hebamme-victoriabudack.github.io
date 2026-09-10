@@ -201,10 +201,7 @@ const siteGraph = {
       )}
     />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content={`${config.site.base_url}/${Astro.url.pathname.replace("/", "")}`}
-    />
+    <meta property="og:url" content={resolvedCanonical} />
 
     <!-- twitter-title -->
     <meta
