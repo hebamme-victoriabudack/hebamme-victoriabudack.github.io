@@ -153,16 +153,23 @@ const siteGraph = {
     <!-- canonical url -->
     <link rel="canonical" href={resolvedCanonical} item-prop="url" />
 
-    <!-- noindex robots -->
+    <!-- noindex  -->
     {noindex && <meta name="robots" content="noindex,nofollow" />}
 
     <!-- structured data: practitioner + website (sitewide) -->
-    <script type="application/ld+json" is:inline set:html={JSON.stringify(siteGraph)} />
-
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(siteGraph)}
+    ></script>
     <!-- structured data: page-specific (Service, BreadcrumbList, ...) -->
     {jsonLd &&
       jsonLd.map((block) => (
-        <script type="application/ld+json" is:inline set:html={JSON.stringify(block)} />
+        <script
+          type="application/ld+json"
+          is:inline
+          set:html={JSON.stringify(block)}
+        ></script>
       ))}
 
     <!-- meta-description -->
