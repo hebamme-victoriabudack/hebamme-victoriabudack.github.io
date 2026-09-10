@@ -44,7 +44,7 @@ const jsonLd = LEGAL_PAGES.includes(page.id)
         description,
         url: pageUrl,
         provider: { "@id": `${config.site.base_url}/#business` },
-        areaServed: { "@type": "City", name: "Dresden" },
+        areaServed: config.business.areaServed,
       },
       {
         "@context": "https://schema.org",

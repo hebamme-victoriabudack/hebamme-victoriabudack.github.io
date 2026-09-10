@@ -53,8 +53,6 @@ yarn run build
 
 #### SEO — Medium
 
-- Widen `areaServed` on the per-service `Service` schema (`[regular].astro`)
-  from "Dresden" only to the full 13-district list already used sitewide
 - Add H2/H3 subheadings to the remaining service pages (only
   `akupunktur.mdx` has them)
 - Add `public/_headers` with basic security headers for Cloudflare Pages
