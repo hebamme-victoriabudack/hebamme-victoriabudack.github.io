@@ -18,52 +18,25 @@ yarn run build
 
 ### ToDos
 
-- Rotate Brevo Key
-- Fix navbar & Hero Banner
-    - not properly centered
-    - style overall not great
-- Fix scrolling when pressing back in the browser
-
-#### SEO — Critical
-
-- Expand `impressum.mdx`: add the Hebammengesetz reference, the competent
-  supervisory authority (Landesdirektion Sachsen), and the
-  Berufshaftpflichtversicherung disclosure — insurer name, address, and
-  geographic coverage need to come from Victoria, can't be filled in blind
-
-#### SEO — High
-
-- Expand `schwangerenvorsorge.mdx` and `wochenbettbetreuung.mdx` — the
-  thinnest pages on the site despite being the core, insurance-billed
-  services; add subheadings, visit cadence, and address the Hebammenmangel
-- Surface the capacity/availability message (currently buried in
-  `wochenbettbetreuung.mdx`) prominently on the homepage and
-  Schwangerenvorsorge page
-- Re-enable the contact form in `kontakt.astro` (already built and
-  Brevo-wired, just commented out)
-- Check Cloudflare Security settings (Bot Fight Mode / Turnstile) — the
-  challenge-platform script it injects adds ~560ms of main-thread blocking
-  on the homepage load; confirm it's actually needed on a static page with
-  no exposed bot-facing forms besides /api/contact
-- Ask Hebammenhandwerk Dresden for a reciprocal link (Victoria links to
-  them twice, they don't link back)
-- Add real client testimonials/reviews once available — the current
-  carousel (`image-carousel.md`) is photos of Victoria, not reviews, so
-  the site still has no review/reputation signal
-
-#### SEO — Medium
-
-- Populate the unused `date` frontmatter field for freshness/lastmod
-  signals
-- Fix the outdated "Privacy Shield" reference in `datenschutz.mdx`
-- Verify in Search Console whether hebamme-victoriabudack.de (old
-  WordPress site) is competing with hebamme-dresden.eu
-- Manually verify the Google Business Profile is claimed and correctly
-  categorized as "Hebamme"/"Midwife"
-
-#### SEO — Low
-
-- Implement IndexNow
+| ToDo | Impact | Effort | Type |
+|---|---|---|---|
+| Rotate Brevo Key | — | Low | Manual (Brevo account access) |
+| Fix navbar & Hero Banner: not properly centered | — | Unconfirmed | Manual (visual audit couldn't reproduce) |
+| Fix navbar & Hero Banner: style overall not great | — | High (open-ended) | Manual (design judgment) |
+| Fix scrolling when pressing back in the browser | — | Medium | Manual investigation, then code |
+| Impressum: add Hebammengesetz reference + supervisory authority (Landesdirektion Sachsen) | Critical | Low | Code-only |
+| Impressum: Berufshaftpflichtversicherung disclosure | Critical | Low | Manual (needs insurer name/address/coverage from Victoria) |
+| Expand `schwangerenvorsorge.mdx` & `wochenbettbetreuung.mdx` (thinnest pages, core services) — add visit cadence, address the Hebammenmangel | High | Medium | Code (draft) + manual review before publish |
+| Surface the capacity/availability message prominently on the homepage and Schwangerenvorsorge page (currently buried in `wochenbettbetreuung.mdx`) | High | Low | Code-only |
+| Re-enable the contact form in `kontakt.astro` (already built and Brevo-wired, just commented out) | High | Low | Code-only |
+| Check Cloudflare Security settings (Bot Fight Mode / Turnstile) — the challenge-platform script it injects adds ~560ms of main-thread blocking on the homepage load | High | Low | Manual (Cloudflare dashboard) |
+| Ask Hebammenhandwerk Dresden for a reciprocal link (Victoria links to them twice, they don't link back) | High | Low | Manual (outreach to a third party) |
+| Add real client testimonials/reviews once available — the current carousel (`image-carousel.md`) is photos of Victoria, not reviews | High | Medium–High | Manual (collecting real testimonials) + code once provided |
+| Populate the unused `date` frontmatter field for freshness/lastmod signals | Medium | Low | Code-only (git-history proxy) or Manual (real dates) |
+| Fix the outdated "Privacy Shield" reference in `datenschutz.mdx` | Medium | Low | Code-only |
+| Verify in Search Console whether hebamme-victoriabudack.de (old WordPress site) is competing with hebamme-dresden.eu | Medium | Low | Manual (Search Console access) |
+| Manually verify the Google Business Profile is claimed and correctly categorized as "Hebamme"/"Midwife" | Medium | Low | Manual (GBP access) |
+| Implement IndexNow | Low | Medium | Code-only |
 
 
 
