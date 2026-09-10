@@ -48,6 +48,12 @@
 
   label {
     @apply bg-border relative inline-block h-4 w-6 cursor-pointer rounded-2xl lg:w-10;
+
+    /* invisible larger hit area so the tap target meets the ~44px
+       recommendation, without changing the visible track size */
+    &::before {
+      @apply absolute -inset-3 content-[''];
+    }
   }
 
   input {
