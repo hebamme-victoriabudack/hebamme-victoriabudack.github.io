@@ -91,15 +91,16 @@ const homepageCollection = defineCollection({
   }),
 });
 
-// Testimonials Section collection schema
-const imageTestimonialSectionCollection = defineCollection({
+// Image carousel section collection schema (a photo carousel, not client
+// testimonials — see readme.md ToDo for adding a real testimonial section)
+const imageCarouselSectionCollection = defineCollection({
   loader: glob({
-    pattern: "image-testimonial.{md,mdx}",
+    pattern: "image-carousel.{md,mdx}",
     base: "src/content/sections",
   }),
   schema: z.object({
     enable: z.boolean(),
-    testimonials: z.array(
+    images: z.array(
       z.object({
         alt: z.string(),
         image: z.string(),
@@ -116,5 +117,5 @@ export const collections = {
   contact: contactCollection,
 
   // sections
-  imageTestimonialSectionCollection: imageTestimonialSectionCollection,
+  imageCarouselSectionCollection: imageCarouselSectionCollection,
 };

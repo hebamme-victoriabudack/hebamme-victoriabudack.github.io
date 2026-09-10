@@ -1,6 +1,6 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
-import * as testimonials from "../../content/sections/image-testimonial.md";
+import * as imageCarousel from "../../content/sections/image-carousel.md";
 
 import {
   Swiper,
@@ -8,9 +8,9 @@ import {
   SwiperSlide,
   SwiperWrapper,
 } from "astro-swiper";
-import type { SwiperOptions } from "swiper/types";
+import type { AstroSwiperOptions } from "astro-swiper";
 
-const swiperOptions: SwiperOptions = {
+const swiperOptions: AstroSwiperOptions = {
   spaceBetween: 24,
   loop: true,
   autoplay: {
@@ -18,7 +18,7 @@ const swiperOptions: SwiperOptions = {
     disableOnInteraction: false,
   },
   pagination: {
-    el: ".testimonial-slider-pagination",
+    el: ".image-carousel-pagination",
     type: "bullets",
     clickable: true,
   },
@@ -27,13 +27,21 @@ const swiperOptions: SwiperOptions = {
     512: { slidesPerView: 3 },
     992: { slidesPerView: 4 },
   },
+  astro: {
+    intersectionObserver: {
+      // defer Swiper init until the carousel scrolls into view instead of
+      // running its init/autoplay/pagination JS during initial page load
+      initSwiper: true,
+      disconnectOnInit: true,
+    },
+  },
 };
 ---
 
-{testimonials.frontmatter.enable && (
-  <Swiper options={swiperOptions} class="testimonial-slider">
+{imageCarousel.frontmatter.enable && (
+  <Swiper options={swiperOptions} class="image-carousel-slider">
     <SwiperWrapper class="mb-12">
-      {testimonials.frontmatter.testimonials.map(
+      {imageCarousel.frontmatter.images.map(
         (item: { image: string; alt: string }) => (
           <SwiperSlide>
             <div class="w-full aspect-square rounded-lg overflow-hidden">
@@ -51,6 +59,6 @@ const swiperOptions: SwiperOptions = {
         ),
       )}
     </SwiperWrapper>
-    <SwiperPagination class="testimonial-slider-pagination flex items-center justify-center" />
+    <SwiperPagination class="image-carousel-pagination flex items-center justify-center" />
   </Swiper>
 )}

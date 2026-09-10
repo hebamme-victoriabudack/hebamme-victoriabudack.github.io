@@ -1,7 +1,7 @@
 ---
-# Testimonials
+# Image carousel (not client testimonials — just photos)
 enable: true
-testimonials:
+images:
   - alt: "Hebamme Dresden | Victoria Budack, Photo-Shooting Hebammenhandwerk Außen"
     image: "/images/hebamme_dresden_vb-5_square.webp"
   - alt: "Hebamme Dresden | Victoria Budack, Photo-Shooting Hebammenhandwerk Außen Close-Up"
