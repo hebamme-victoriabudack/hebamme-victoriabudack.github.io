@@ -28,6 +28,8 @@ yarn indexnow
 
 ### ToDos
 
+**Context:** on 2026-10-04 the site migrated off WordPress and off `hebamme-dresden.eu`/Cloudflare entirely — `hebamme-victoriabudack.de` (the original, better-ranking domain, live since ~2017) now runs this same Astro codebase directly on the existing Netcup/Plesk server (Apache+nginx, no CDN). Everything below reflects that new reality; items specific to the old Cloudflare/.eu setup have been removed as obsolete rather than carried forward.
+
 | ToDo | Impact | Effort | Type |
 |---|---|---|---|
 | Rotate Brevo Key | — | Low | Manual (Brevo account access) |
@@ -36,22 +38,27 @@ yarn indexnow
 | Fix scrolling when pressing back in the browser | — | Medium | Manual investigation, then code |
 | Impressum: add Hebammengesetz reference + supervisory authority (Landesdirektion Sachsen) | Critical | Low | Code-only |
 | Impressum: Berufshaftpflichtversicherung disclosure | Critical | Low | Manual (needs insurer name/address/coverage from Victoria) |
+| `www.hebamme-victoriabudack.de` is completely broken — the SSL cert's SAN list only covers the bare domain, so the connection fails before any redirect logic runs (confirmed via `openssl`); same bug the old WordPress site had | Critical | Low | Manual (Plesk: reissue Let's Encrypt cert including `www`) |
+| Static assets (CSS/JS/images) lost their `Cache-Control`/`Expires` headers as a side effect of the Plesk fix for the security-headers issue — confirmed via live `curl`, repeat visitors now re-download everything every time | High | Low | Manual (Plesk: add cache headers at the nginx layer, since `.htaccess` no longer reaches these files) |
+| Decide the fate of `hebamme-dresden.eu` — it's still a fully live, independently-indexed duplicate of this exact site (own canonical tags, own sitemap). Plan is to redirect it and let the domain lapse at its next renewal rather than renew again; not yet done | High | Low | Manual (Cloudflare dashboard: zone-level redirect to `.de`, then Search Console Change of Address) |
 | Expand `schwangerenvorsorge.mdx` & `wochenbettbetreuung.mdx` (thinnest pages, core services) — add visit cadence, address the Hebammenmangel | High | Medium | Code (draft) + manual review before publish |
 | Surface the capacity/availability message prominently on the homepage and Schwangerenvorsorge page (currently buried in `wochenbettbetreuung.mdx`) | High | Low | Code-only |
 | Re-enable the contact form in `kontakt.astro` (already built and Brevo-wired, just commented out) | High | Low | Code-only |
-| Check Cloudflare Security settings (Bot Fight Mode / Turnstile) — the challenge-platform script is confirmed live on every page; it no longer dominates homepage TBT (860ms → 129ms after the carousel fix) but may still be delaying LCP paint by ~2s on both pages (plausible, not fully isolated/confirmed) | High | Low | Manual (Cloudflare dashboard) |
-| Ask Hebammenhandwerk Dresden for a reciprocal link (Victoria links to them twice, they don't link back) | High | Low | Manual (outreach to a third party) |
 | Add real client testimonials/reviews once available — the current carousel (`image-carousel.md`) is photos of Victoria, not reviews | High | Medium–High | Manual (collecting real testimonials) + code once provided |
-| Fix `www.hebamme-dresden.eu` not redirecting to the apex domain — `public/_redirects` is committed with Cloudflare's documented host-redirect syntax, confirmed served by the current Pages deployment (carries our own `_headers` values), but still returns 200 instead of 301 roughly an hour after deploy; needs the Cloudflare Pages dashboard (Redirect Rules / Bulk Redirects may be overriding it) | High | Low | Manual (Cloudflare dashboard investigation) |
-| Re-enable GPTBot and ClaudeBot in Cloudflare's AI Bots / Content Signals settings — the repo's own `robots.txt` is clean, but Cloudflare injects a managed block at the edge disallowing both, undercutting the `llms.txt` work | High | Low | Manual (Cloudflare dashboard) |
+| Homepage LCP is 3.4s (vs. 1.6s on a service subpage) — traced to the Swiper carousel's JS blocking first paint; it also attaches a deprecated `unload` listener that fails the back/forward-cache check | High | Medium | Code (defer further / lighter carousel implementation) |
+| Run `yarn indexnow` after the next redeploy, once the sitemap-filter fix below is live — not yet run post-migration | High | Low | Code-only (just execute it) |
+| Add `geo` coordinates, `openingHoursSpecification`, and a `sameAs` array to the schema (GBP/social profile links, once they exist) | Medium | Low–Medium | Code (geo/hours) + Manual (sameAs needs real profile URLs) |
+| Convert service-page H2 headings to question-phrased form (e.g. "Was kostet die Schwangerenvorsorge?") for better AI-answer citability; expand `kinesio-taping.mdx` (81 words, too thin to be a self-contained citable passage) | Medium | Medium | Code-only (content rewrite) |
+| Set `charset=utf-8` at the HTTP header level (nginx), not just via the HTML meta tag — currently relies solely on the meta tag, which some non-browser crawlers may not honor | Medium | Low | Manual (Plesk: nginx-level charset directive) |
 | Populate the unused `date` frontmatter field for freshness/lastmod signals (low actual SEO value — Google ties sitemap `lastmod` only to crawl scheduling, not rankings, and `dateModified`'s documented benefit is for Article-type content, not our Service/MedicalBusiness schema; keeping this listed as low-priority/optional rather than dropping it) | Medium | Low | Code-only (git-history proxy) or Manual (real dates) |
 | Fix the outdated "Privacy Shield" reference in `datenschutz.mdx` | Medium | Low | Code-only |
-| Verify in Search Console whether hebamme-victoriabudack.de (old WordPress site) is competing with hebamme-dresden.eu | Medium | Low | Manual (Search Console access) |
+| Verify in Search Console whether the still-live `hebamme-dresden.eu` is competing with `hebamme-victoriabudack.de` for indexation/rankings | Medium | Low | Manual (Search Console access) |
 | Manually verify the Google Business Profile is claimed and correctly categorized as "Hebamme"/"Midwife" | Medium | Low | Manual (GBP access) |
 | Add `priceRange`/`offers` to the per-service `Service` schema — every page states a concrete euro price in prose but none of it is machine-readable, the clearest remaining gap for "Hebamme Dresden Kosten"-type AI/search queries | Medium | Low | Code-only |
+| No English-language content exists; old `/midwife-in-dresden/`, `/midwife-in-jena/`, `/hebamme-in-jena/*` paths now redirect to the homepage instead of 404ing, but there's still no actual English page for international/expat searchers | Low | Medium–High | Manual decision (add an English page?) + code |
 
 
 
 ## 📝 License
 
-Copyright (c) 2026 - Present, Designed & Developed by [Victoria Budack](https://hebamme-dresden.eu/)
+Copyright (c) 2026 - Present, Designed & Developed by [Victoria Budack](https://hebamme-victoriabudack.de/)
