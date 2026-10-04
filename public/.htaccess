@@ -63,6 +63,38 @@
   Header set Cache-Control "max-age=2592000, public"
 </filesMatch>
 
+##### Security headers (equivalent to the Cloudflare Pages _headers file
+##### used by the sibling deployment of this same site)
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options "DENY"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+</IfModule>
+
+##### Custom 404 page (Astro outputs 404.html at the site root)
+ErrorDocument 404 /404.html
+
+##### Legacy WordPress URL compatibility (this domain previously ran
+##### WordPress; these redirects preserve old bookmarks/backlinks)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # specific case before the general prefix-strip below: the old site
+  # renamed this one page under the legacy prefix
+  RewriteRule ^hebamme-in-dresden/tragetuchberatung/?$ /trageberatung/ [R=301,L]
+
+  # legacy prefix WordPress used to redirect for every page
+  RewriteRule ^hebamme-in-dresden/(.*)$ /$1 [R=301,L]
+
+  # slug rename (direct, non-prefixed links)
+  RewriteRule ^tragetuchberatung/?$ /trageberatung/ [R=301,L]
+
+  # WordPress RSS feed -> homepage
+  RewriteRule ^feed/?$ / [R=301,L]
+</IfModule>
+
 ##### Enable gzip compression for resources
 <ifModule mod_gzip.c>
   mod_gzip_on Yes
