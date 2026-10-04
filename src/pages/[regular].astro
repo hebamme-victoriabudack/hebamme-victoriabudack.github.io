@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props;
-const { title, meta_title, description, image, priceRange } = page.data;
+const { title, meta_title, description, image } = page.data;
 const { Content } = await render(page);
 
 const bannerData = {
@@ -45,7 +45,6 @@ const jsonLd = LEGAL_PAGES.includes(page.id)
         url: pageUrl,
         provider: { "@id": `${config.site.base_url}/#business` },
         areaServed: config.business.areaServed,
-        ...(priceRange ? { priceRange } : {}),
       },
       {
         "@context": "https://schema.org",

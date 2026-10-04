@@ -16,10 +16,6 @@ const pagesCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/pages" }),
   schema: z.object({
     ...commonFields,
-    // for Service schema (JSON-LD) on paid add-on services; omitted for
-    // insurance-covered services (Schwangerenvorsorge, Wochenbettbetreuung)
-    // and legal pages, which have no out-of-pocket price to state
-    priceRange: z.string().optional(),
   }),
 });
 

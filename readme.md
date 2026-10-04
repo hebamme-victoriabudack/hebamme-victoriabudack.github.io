@@ -45,12 +45,15 @@ yarn indexnow
 | Re-enable the contact form in `kontakt.astro` (already built and Brevo-wired, just commented out) | High | Low | Code-only |
 | Add real client testimonials/reviews once available — the current carousel (`image-carousel.md`) is photos of Victoria, not reviews | High | Medium–High | Manual (collecting real testimonials) + code once provided |
 | Homepage LCP is 3.4s (vs. 1.6s on a service subpage) — traced to the Swiper carousel's JS blocking first paint; it also attaches a deprecated `unload` listener that fails the back/forward-cache check | High | Medium | Code (defer further / lighter carousel implementation) |
+| Run `yarn indexnow` after the next redeploy, once the sitemap-filter fix below is live — not yet run post-migration | High | Low | Code-only (just execute it) |
 | Add `geo` coordinates, `openingHoursSpecification`, and a `sameAs` array to the schema (GBP/social profile links, once they exist) | Medium | Low–Medium | Code (geo/hours) + Manual (sameAs needs real profile URLs) |
 | Convert service-page H2 headings to question-phrased form (e.g. "Was kostet die Schwangerenvorsorge?") for better AI-answer citability; expand `kinesio-taping.mdx` (81 words, too thin to be a self-contained citable passage) | Medium | Medium | Code-only (content rewrite) |
 | Set `charset=utf-8` at the HTTP header level (nginx), not just via the HTML meta tag — currently relies solely on the meta tag, which some non-browser crawlers may not honor | Medium | Low | Manual (Plesk: nginx-level charset directive) |
 | Populate the unused `date` frontmatter field for freshness/lastmod signals (low actual SEO value — Google ties sitemap `lastmod` only to crawl scheduling, not rankings, and `dateModified`'s documented benefit is for Article-type content, not our Service/MedicalBusiness schema; keeping this listed as low-priority/optional rather than dropping it) | Medium | Low | Code-only (git-history proxy) or Manual (real dates) |
-| `hebamme-dresden.eu` → `hebamme-victoriabudack.de` redirect is live (Cloudflare Redirect Rule, path+query preserved) and Change of Address has been submitted in Search Console — monitor over the coming weeks to confirm it's actually consolidating; let the `.eu` domain lapse at its next renewal rather than renewing again | Medium | Low | Manual (monitoring only, mostly done) |
+| Fix the outdated "Privacy Shield" reference in `datenschutz.mdx` | Medium | Low | Code-only |
+| Verify in Search Console whether the still-live `hebamme-dresden.eu` is competing with `hebamme-victoriabudack.de` for indexation/rankings | Medium | Low | Manual (Search Console access) |
 | Manually verify the Google Business Profile is claimed and correctly categorized as "Hebamme"/"Midwife" | Medium | Low | Manual (GBP access) |
+| Add `priceRange`/`offers` to the per-service `Service` schema — every page states a concrete euro price in prose but none of it is machine-readable, the clearest remaining gap for "Hebamme Dresden Kosten"-type AI/search queries | Medium | Low | Code-only |
 | No English-language content exists; old `/midwife-in-dresden/`, `/midwife-in-jena/`, `/hebamme-in-jena/*` paths now redirect to the homepage instead of 404ing, but there's still no actual English page for international/expat searchers | Low | Medium–High | Manual decision (add an English page?) + code |
 
 
