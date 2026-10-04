@@ -81,6 +81,11 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # www -> apex (avoid serving duplicate content at both hostnames now
+  # that the www certificate covers both names)
+  RewriteCond %{HTTP_HOST} ^www\.hebamme-victoriabudack\.de$ [NC]
+  RewriteRule ^(.*)$ https://hebamme-victoriabudack.de/$1 [R=301,L]
+
   # specific case before the general prefix-strip below: the old site
   # renamed this one page under the legacy prefix
   RewriteRule ^hebamme-in-dresden/tragetuchberatung/?$ /trageberatung/ [R=301,L]
