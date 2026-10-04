@@ -57,7 +57,7 @@ const { banner } = Astro.props;
       {banner.content && (
         <p
           set:html={markdownify(banner.content)}
-          class="mt-6 text-h6 md:text-h5 text-white text-shadow-lg/30"
+          class="mt-6 max-w-5xl mx-auto text-h6 md:text-h5 text-white text-shadow-lg/30"
         />
       )}
       {banner.buttons && banner.buttons.length > 0 && (
