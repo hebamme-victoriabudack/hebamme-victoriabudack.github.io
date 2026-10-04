@@ -36,8 +36,8 @@ export default defineConfig({
       filter: (page) => {
         const path = page.replace(/\/$/, "");
         return (
-          path !== "https://hebamme-dresden.eu/datenschutz" &&
-          path !== "https://hebamme-dresden.eu/impressum"
+          path !== `${config.site.base_url}/datenschutz` &&
+          path !== `${config.site.base_url}/impressum`
         );
       },
       i18n: {

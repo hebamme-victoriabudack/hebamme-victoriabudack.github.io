@@ -93,6 +93,13 @@ ErrorDocument 404 /404.html
 
   # WordPress RSS feed -> homepage
   RewriteRule ^feed/?$ / [R=301,L]
+
+  # Jena content was dropped (Victoria no longer practices there) and no
+  # English version of the site exists -- redirect to homepage rather than
+  # leave these as dead 404s for anyone with an old bookmark/backlink
+  RewriteRule ^hebamme-in-jena/(.*)$ / [R=301,L]
+  RewriteRule ^midwife-in-dresden/?$ / [R=301,L]
+  RewriteRule ^midwife-in-jena/?$ / [R=301,L]
 </IfModule>
 
 ##### Enable gzip compression for resources
