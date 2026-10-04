@@ -6,7 +6,7 @@
 //
 // Run manually after deploying a content change: `yarn indexnow`
 
-const SITE = "https://hebamme-dresden.eu";
+const SITE = "https://hebamme-victoriabudack.de";
 const KEY = "86b3745770ec492b819875ced2f0147e";
 const KEY_LOCATION = `${SITE}/${KEY}.txt`;
 const SITEMAP_URL = `${SITE}/sitemap-0.xml`;

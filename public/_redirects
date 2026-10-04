@@ -1,1 +1,10 @@
 https://www.hebamme-dresden.eu/* https://hebamme-dresden.eu/:splat 301
+
+# hebamme-victoriabudack.de: legacy WordPress URL compatibility
+# (specific case before the general wildcard: the old site renamed this one
+# page under the legacy prefix, so it needs its own rule to land correctly
+# in a single hop instead of matching the generic prefix-strip below)
+/hebamme-in-dresden/tragetuchberatung/ /trageberatung/ 301
+/hebamme-in-dresden/* /:splat 301
+/tragetuchberatung/ /trageberatung/ 301
+/feed/ / 301
